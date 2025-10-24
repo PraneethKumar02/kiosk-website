@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BEML Defence and Aerospace</title>
+<link rel="stylesheet" href="./css/styles.css">
 <style>
 body, html {
     margin: 0;
@@ -11,7 +12,14 @@ body, html {
     height: 100%;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
-    background: #111;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
 }
 
 /* Background */
@@ -19,9 +27,10 @@ body, html {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    z-index: 0;
     overflow: hidden;
+    z-index: 0;
 }
+
 .background-container img {
     width: 100%; height: 100%;
     object-fit: cover;
@@ -29,23 +38,32 @@ body, html {
     transform: scale(1.05);
 }
 
+.background-container::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
 /* Logo */
 .beml-logo {
     position: fixed;
-    top: 15px;
-    right: 15px;
-    height: 60px;
-    z-index: 2;
+    top: 20px;
+    right: 60px;
+    height: 80px;
+    object-fit: contain;
+    z-index: 1;
 }
 
 /* Carousel */
 .crew-carousel {
     width: 100%;
     max-width: 1400px;
-    height: 400px;
+    height: 500px;
     position: relative;
     perspective: 1000px;
-    margin-top: 100px;
+    margin-top: 120px;
     z-index: 1;
 }
 
@@ -62,8 +80,8 @@ body, html {
 
 .crew-card {
     position: absolute;
-    width: 300px;
-    height: 400px;
+    width: 350px;
+    height: 450px;
     border-radius: 20px;
     overflow: hidden;
     background: rgba(255,255,255,0.9);
@@ -76,55 +94,58 @@ body, html {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 15px;
+    padding: 20px;
 }
 
-/* Card positions */
-.crew-card.center { z-index: 10; transform: scale(1.1); }
-.crew-card.left-1 { transform: translateX(-180px) scale(0.9); opacity: 0.85; filter: grayscale(80%); }
-.crew-card.left-2 { transform: translateX(-360px) scale(0.8); opacity: 0.65; filter: grayscale(100%); }
-.crew-card.right-1 { transform: translateX(180px) scale(0.9); opacity: 0.85; filter: grayscale(80%); }
-.crew-card.right-2 { transform: translateX(360px) scale(0.8); opacity: 0.65; filter: grayscale(100%); }
+.crew-card.center { z-index: 10; transform: scale(1.15); }
+.crew-card.left-1 { transform: translateX(-220px) scale(0.95); opacity: 0.85; filter: grayscale(80%); }
+.crew-card.left-2 { transform: translateX(-440px) scale(0.85); opacity: 0.65; filter: grayscale(100%); }
+.crew-card.right-1 { transform: translateX(220px) scale(0.95); opacity: 0.85; filter: grayscale(80%); }
+.crew-card.right-2 { transform: translateX(440px) scale(0.85); opacity: 0.65; filter: grayscale(100%); }
 .crew-card.hidden { opacity: 0; pointer-events: none; }
 
-/* Info text */
+/* Crew info */
 .crew-info {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
     background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
-    padding: 15px 25px;
+    padding: 15px 30px;
     border-radius: 10px;
     display: inline-block;
+    z-index: 1;
 }
 
 .crew-name {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     color: #fff;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
+    letter-spacing: 1px;
     font-weight: 600;
 }
 
 .crew-role {
-    font-size: 0.95rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
     color: rgba(255,255,255,0.9);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
 /* Dots */
 .crew-dots {
     display: flex;
     justify-content: center;
-    gap: 8px;
-    margin-top: 15px;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .crew-dot {
-    width: 10px;
-    height: 10px;
+    width: 12px; height: 12px;
     border-radius: 50%;
     background: rgba(255,255,255,0.3);
     cursor: pointer;
 }
+
 .crew-dot.active { background: #fff; }
 
 /* Arrows */
@@ -132,26 +153,27 @@ body, html {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(107,142,35,0.8);
+    background: rgba(107, 142, 35, 0.8);
     color: white;
-    width: 35px; height: 35px;
+    width: 45px; height: 45px;
     border-radius: 50%;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
     z-index: 2;
 }
+
 .crew-arrow:hover { background: rgba(107,142,35,1); }
 .crew-left { left: 5px; }
 .crew-right { right: 5px; }
 
-/* Back Home button */
+/* Back button */
 #back-home {
     position: fixed;
-    bottom: 15px;
-    right: 15px;
-    padding: 8px 20px;
-    font-size: 0.9rem;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 25px;
+    font-size: 1rem;
     background: #fff;
     color: #111;
     text-transform: uppercase;
@@ -160,48 +182,47 @@ body, html {
     cursor: pointer;
     border-radius: 6px;
     transition: 0.2s;
+    z-index: 1;
 }
-#back-home:hover { letter-spacing: 4px; }
 
-/* Tablet */
+#back-home:hover { letter-spacing: 6px; }
+
+/* Responsive */
 @media screen and (max-width: 1024px) {
-    .crew-carousel { height: 350px; margin-top: 80px; }
-    .crew-card { width: 250px; height: 350px; }
-    .crew-card.left-1 { transform: translateX(-140px) scale(0.9); }
-    .crew-card.left-2 { transform: translateX(-280px) scale(0.8); }
-    .crew-card.right-1 { transform: translateX(140px) scale(0.9); }
-    .crew-card.right-2 { transform: translateX(280px) scale(0.8); }
-    .crew-name { font-size: 1.5rem; }
-    .crew-role { font-size: 0.85rem; }
+    .crew-carousel { height: 450px; }
+    .crew-card { width: 300px; height: 400px; }
+    .crew-card.left-1 { transform: translateX(-180px) scale(0.95); }
+    .crew-card.left-2 { transform: translateX(-360px) scale(0.85); }
+    .crew-card.right-1 { transform: translateX(180px) scale(0.95); }
+    .crew-card.right-2 { transform: translateX(360px) scale(0.85); }
+    .crew-name { font-size: 2rem; }
+    .crew-role { font-size: 1rem; }
+    .crew-arrow { width: 40px; height: 40px; font-size: 1.5rem; }
 }
 
-/* Mobile */
 @media screen and (max-width: 600px) {
-    .crew-carousel { height: 300px; margin-top: 60px; }
-    .crew-card { width: 200px; height: 280px; }
-    .crew-card.left-1 { transform: translateX(-100px) scale(0.85); }
-    .crew-card.left-2 { transform: translateX(-200px) scale(0.7); }
-    .crew-card.right-1 { transform: translateX(100px) scale(0.85); }
-    .crew-card.right-2 { transform: translateX(200px) scale(0.7); }
-    .crew-name { font-size: 1.3rem; }
-    .crew-role { font-size: 0.75rem; }
-    .crew-arrow { width: 30px; height: 30px; font-size: 1rem; }
+    .crew-carousel { height: 350px; margin-top: 100px; }
+    .crew-card { width: 220px; height: 300px; }
+    .crew-card.left-1 { transform: translateX(-120px) scale(0.9); }
+    .crew-card.left-2 { transform: translateX(-240px) scale(0.8); }
+    .crew-card.right-1 { transform: translateX(120px) scale(0.9); }
+    .crew-card.right-2 { transform: translateX(240px) scale(0.8); }
+    .crew-name { font-size: 1.5rem; }
+    .crew-role { font-size: 0.9rem; }
+    .crew-arrow { width: 35px; height: 35px; font-size: 1.2rem; }
     .crew-dots { gap: 6px; }
-    .beml-logo { height: 50px; top: 10px; right: 10px; }
-    #back-home { padding: 6px 15px; font-size: 0.8rem; }
 }
 </style>
 </head>
 <body>
-
 <div class="background-container">
-    <img src="./assets/mining.jpg" alt="Defence background">
+    <img src="./assets/mining.jpg" alt="Background">
 </div>
 
 <img src="./assets/logo.png" alt="BEML Logo" class="beml-logo">
 
 <div class="crew-carousel">
-    <button class="crew-arrow crew-left">‹</button>
+    <button class="crew-arrow crew-left" aria-label="Previous slide">‹</button>
     <div class="crew-track">
         <div class="crew-card" data-index="0"><a href="./BH205E.html"><img src="./assets/mining.jpg" alt="BEML Dump Truck BH205E"></a></div>
         <div class="crew-card" data-index="1"><a href="./wheel loaders.html"><img src="./assets/wheel.jpg" alt="BEML Wheel Loader"></a></div>
@@ -209,7 +230,7 @@ body, html {
         <div class="crew-card" data-index="3"><a href="./water.html"><img src="./assets/water.jpg" alt="BEML Water Sprinkler"></a></div>
         <div class="crew-card" data-index="4"><a href="./excavators.html"><img src="./assets/excavator.jpg" alt="BEML Excavator"></a></div>
     </div>
-    <button class="crew-arrow crew-right">›</button>
+    <button class="crew-arrow crew-right" aria-label="Next slide">›</button>
 </div>
 
 <div class="crew-info">
@@ -231,21 +252,22 @@ body, html {
 const crewCards = document.querySelectorAll('.crew-card');
 const crewDots = document.querySelectorAll('.crew-dot');
 const crewName = document.querySelector('.crew-name');
+const crewRole = document.querySelector('.crew-role');
 const leftBtn = document.querySelector('.crew-left');
 const rightBtn = document.querySelector('.crew-right');
 
 const crewMembers = [
-    { name: 'BEML Dump Truck BH205E' },
-    { name: 'BEML Wheel Loader' },
-    { name: 'BEML Crawler' },
-    { name: 'BEML Water Sprinkler' },
-    { name: 'BEML Excavator' }
+    { name: 'BEML Dump Truck BH205E'},
+    { name: 'BEML Wheel Loader'},
+    { name: 'BEML Crawler'},
+    { name: 'BEML Water Sprinkler'},
+    { name: 'BEML Excavator'}
 ];
 
 let crewIndex = 0;
 let isAnimating = false;
 
-function updateCrewCarousel(newIndex){
+function updateCrewCarousel(newIndex) {
     if(isAnimating) return;
     isAnimating = true;
     crewIndex = (newIndex + crewCards.length) % crewCards.length;
@@ -263,11 +285,13 @@ function updateCrewCarousel(newIndex){
 
     crewDots.forEach((dot,i)=>dot.classList.toggle('active',i===crewIndex));
     crewName.style.opacity='0';
+    crewRole.style.opacity='0';
     setTimeout(()=>{
         crewName.textContent=crewMembers[crewIndex].name;
+        crewRole.textContent=crewMembers[crewIndex].role||'';
         crewName.style.opacity='1';
+        crewRole.style.opacity='1';
     },300);
-
     setTimeout(()=>{isAnimating=false;},800);
 }
 
@@ -275,13 +299,15 @@ leftBtn.addEventListener('click',()=>updateCrewCarousel(crewIndex-1));
 rightBtn.addEventListener('click',()=>updateCrewCarousel(crewIndex+1));
 crewDots.forEach((dot,i)=>dot.addEventListener('click',()=>updateCrewCarousel(i)));
 crewCards.forEach((card,i)=>card.addEventListener('click',()=>updateCrewCarousel(i)));
-document.addEventListener('keydown',e=>{
+
+document.addEventListener('keydown', e=>{
     if(e.key==='ArrowLeft') updateCrewCarousel(crewIndex-1);
     else if(e.key==='ArrowRight') updateCrewCarousel(crewIndex+1);
 });
+
 let touchStart=0,touchEnd=0;
-document.addEventListener('touchstart',e=>{touchStart=e.changedTouches[0].screenX;});
-document.addEventListener('touchend',e=>{
+document.addEventListener('touchstart', e=>{touchStart=e.changedTouches[0].screenX;});
+document.addEventListener('touchend', e=>{
     touchEnd=e.changedTouches[0].screenX;
     const diff=touchStart-touchEnd;
     if(Math.abs(diff)>50){
@@ -289,7 +315,10 @@ document.addEventListener('touchend',e=>{
         else updateCrewCarousel(crewIndex-1);
     }
 });
+
 updateCrewCarousel(0);
 </script>
 </body>
 </html>
+
+
