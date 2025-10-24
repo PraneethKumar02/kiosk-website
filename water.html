@@ -15,7 +15,7 @@
             min-height: 100vh;
             position: relative;
             font-family: 'Poppins', sans-serif;
-            overflow: auto;
+            overflow-x: hidden;
 
             /* Background image */
             background-image: url('./assets/bg.jpg');
@@ -28,7 +28,7 @@
         .back-gallery {
             position: fixed;
             top: 20px;
-            left: 40px;
+            left: 20px;
             padding: 10px 25px;
             font-size: 1rem;
             background: #cc5500;
@@ -52,8 +52,8 @@
         .beml-logo {
             position: fixed;
             top: 20px;
-            right: 60px;
-            width: 200px; /* width same as verticals page */
+            right: 20px;
+            width: 200px;
             height: auto;
             object-fit: contain;
             z-index: 1000;
@@ -64,6 +64,7 @@
             width: 100%;
             flex: 1;
             margin-top: 100px; /* adjust for header */
+            padding: 20px;
         }
 
         /* Left half for image */
@@ -105,7 +106,8 @@
             letter-spacing: 0.05em;
         }
 
-        .product-description {
+        .product-description li {
+            margin-bottom: 10px;
             font-size: 1rem;
             line-height: 1.6;
             color: #333;
@@ -137,6 +139,10 @@
             color: #333;
         }
 
+        /* ===========================
+           RESPONSIVE DESIGN
+        ============================*/
+
         @media screen and (max-width: 1024px) {
             .product-container {
                 flex-direction: column;
@@ -163,6 +169,43 @@
             .product-subtitle {
                 font-size: 1.2rem;
             }
+
+            .product-description li {
+                font-size: 0.95rem;
+            }
+
+            .product-table {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .back-gallery {
+                top: 10px;
+                left: 10px;
+                padding: 6px 15px;
+                font-size: 0.85rem;
+            }
+
+            .beml-logo {
+                width: 120px;
+            }
+
+            .product-title {
+                font-size: 1.8rem;
+            }
+
+            .product-subtitle {
+                font-size: 1rem;
+            }
+
+            .product-description li {
+                font-size: 0.9rem;
+            }
+
+            .product-table {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -170,7 +213,7 @@
 <body>
 
     <!-- Back to Products button -->
-    <a href="./defence.html" class="back-gallery">Back to Products</a>
+    <a href="./mining.html" class="back-gallery">Back to Products</a>
 
     <!-- BEML Logo -->
     <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
@@ -185,12 +228,12 @@
         <div class="product-details">
             <h1 class="product-title">Water Sprinklers</h1>
             <h2 class="product-subtitle">SBU Mining</h2>
-            <p class="product-description">
+            <ul class="product-description">
                 <li>BEML Water Sprinklers come equipped with large-capacity tanks, ensuring prolonged operation for dust control in mining and construction areas.</li>
                 <li>The sprinklers feature powerful pumps and adjustable spray nozzles for uniform water distribution over large surfaces.</li>
                 <li>Designed for rugged environments, BEML Water Sprinklers are built with durable frames, ensuring reliability even under harsh working conditions.</li>
                 <li>The sprinklers are equipped with automated control systems for precise water flow management, reducing water wastage and ensuring efficiency.</li>
-            </p>
+            </ul>
 
             <h3 class="product-table-title">Technical Specifications</h3>
             <table class="product-table">
@@ -223,4 +266,5 @@
     </div>
 
 </body>
+
 </html>
