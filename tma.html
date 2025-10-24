@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Info</title>
-    <link rel="stylesheet" href="./css/styles.css">
     <link rel="icon" href="./assets/favicon.ico" type="image/png">
     <style>
         body {
@@ -15,7 +14,8 @@
             min-height: 100vh;
             position: relative;
             font-family: 'Poppins', sans-serif;
-            overflow: auto;
+            overflow-x: hidden;
+            margin: 0;
 
             /* Background image */
             background-image: url('./assets/bg.jpg');
@@ -27,7 +27,7 @@
         .beml-logo {
             position: fixed;
             top: 20px;
-            left: 60px;
+            left: 20px;
             height: 60px;
             object-fit: contain;
             z-index: 1000;
@@ -36,32 +36,33 @@
         .product-container {
             display: flex;
             width: 100%;
+            max-width: 1200px;
             flex: 1;
             margin-top: 100px;
-            /* adjust for logo */
+            gap: 30px;
+            padding: 0 20px;
         }
 
-        /* Left half for image */
+        /* Left: Image */
         .product-image {
-            width: 50%;
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .product-image img {
-            width: 75%;
-            /* 75% of left half */
+            width: 100%;
+            max-width: 500px;
             height: auto;
             border-radius: 15px;
             object-fit: contain;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Right half for details */
+        /* Right: Details */
         .product-details {
-            width: 50%;
-            padding: 50px;
+            flex: 1;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -95,10 +96,15 @@
             text-transform: uppercase;
         }
 
+        .product-table-container {
+            overflow-x: auto;
+        }
+
         .product-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.95rem;
+            min-width: 400px;
         }
 
         .product-table th,
@@ -136,15 +142,12 @@
             letter-spacing: 3px;
         }
 
+        /* Tablet */
         @media screen and (max-width: 1024px) {
             .product-container {
                 flex-direction: column;
                 margin-top: 80px;
-            }
-
-            .product-image,
-            .product-details {
-                width: 100%;
+                gap: 20px;
             }
 
             .product-image img {
@@ -161,6 +164,50 @@
 
             .product-subtitle {
                 font-size: 1.2rem;
+            }
+        }
+
+        /* Mobile */
+        @media screen and (max-width: 600px) {
+            .product-container {
+                flex-direction: column;
+                margin-top: 60px;
+            }
+
+            .product-image img {
+                width: 100%;
+            }
+
+            .product-title {
+                font-size: 1.5rem;
+            }
+
+            .product-subtitle {
+                font-size: 1rem;
+            }
+
+            .product-description {
+                font-size: 0.9rem;
+            }
+
+            .product-table-title {
+                font-size: 1rem;
+            }
+
+            .product-table {
+                font-size: 0.85rem;
+                min-width: 350px;
+            }
+
+            .back-gallery {
+                padding: 8px 20px;
+                font-size: 0.85rem;
+            }
+
+            .beml-logo {
+                height: 50px;
+                top: 10px;
+                left: 10px;
             }
         }
     </style>
@@ -180,7 +227,7 @@
         <!-- Right: Details -->
         <div class="product-details">
             <h1 class="product-title">TMA Trolley for LCA AF MK2</h1>
-            <h2 class="product-subtitle">SBU </h2>
+            <h2 class="product-subtitle">SBU</h2>
             <p class="product-description">
                 The TMA Trolley is designed to carry weapons and ammunition for the LCA-Tejas Aircraft.<br>
                 It can transport six types of bombs, including various weights of Griffin LGB, GP, PF, and HSLD
@@ -189,38 +236,37 @@
                 It includes a telescopic, A-frame tow bar with an arrangement to prevent braking during reverse
                 towing.<br>
                 The trolley is built for easy handling and efficient transportation of armaments.<br>
-
-
             </p>
 
             <h3 class="product-table-title">Technical Specifications</h3>
-            <table class="product-table">
-                <tr>
-                    <th>Specification</th>
-                    <th>Parameter</th>
-                </tr>
-                <tr>
-                    <td>Load Carrying Capacity</td>
-                    <td>Maximum 3 Tons</td>
-                </tr>
-                <tr>
-                    <td>Towing Speed</td>
-                    <td>Maximum 25 km/hr</td>
-                </tr>
-                <tr>
-                    <td>Front Axle</td>
-                    <td>Steerable</td>
-                </tr>
-                <tr>
-                    <td>Braking System</td>
-                    <td>Hydraulic Service Brake for all wheels and Manual Parking Brake for Rear Wheel</td>
-                </tr>
-                <tr>
-                    <td>Tow Bar</td>
-                    <td>A frame construction and telescopic type and an arrangement to avoid braking due to reverse tow
-                    </td>
-                </tr>
-            </table>
+            <div class="product-table-container">
+                <table class="product-table">
+                    <tr>
+                        <th>Specification</th>
+                        <th>Parameter</th>
+                    </tr>
+                    <tr>
+                        <td>Load Carrying Capacity</td>
+                        <td>Maximum 3 Tons</td>
+                    </tr>
+                    <tr>
+                        <td>Towing Speed</td>
+                        <td>Maximum 25 km/hr</td>
+                    </tr>
+                    <tr>
+                        <td>Front Axle</td>
+                        <td>Steerable</td>
+                    </tr>
+                    <tr>
+                        <td>Braking System</td>
+                        <td>Hydraulic Service Brake for all wheels and Manual Parking Brake for Rear Wheel</td>
+                    </tr>
+                    <tr>
+                        <td>Tow Bar</td>
+                        <td>A frame construction and telescopic type with arrangement to prevent braking during reverse towing</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
