@@ -2,271 +2,315 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Info</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="icon" href="./assets/favicon.ico" type="image/png">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            position: relative;
-            font-family: 'Poppins', sans-serif;
-            overflow: auto;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Info</title>
+<link rel="stylesheet" href="./css/styles.css">
+<link rel="icon" href="./assets/favicon.ico" type="image/png">
+<style>
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 
-            /* Background image */
-            background-image: url('./assets/bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+    /* Background image */
+    background-image: url('./assets/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 80px; /* space for header */
+}
 
-        /* Back to Products button on top-left */
-        .back-gallery {
-            position: fixed;
-            top: 20px;
-            left: 40px;
-            padding: 10px 25px;
-            font-size: 1rem;
-            background: #cc5500;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 1000;
-            text-decoration: none;
-            transition: 0.2s;
-        }
+/* Back to Products button */
+.back-gallery {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #cc5500;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 1000;
+    text-decoration: none;
+    transition: 0.2s;
+}
 
-        .back-gallery:hover {
-            background: #aa4400;
-            letter-spacing: 3px;
-        }
+.back-gallery:hover {
+    background: #aa4400;
+    letter-spacing: 3px;
+}
 
-        /* BEML Logo on top-right */
-        .beml-logo {
-            position: fixed;
-            top: 20px;
-            right: 60px;
-            width: 200px; /* width same as verticals page */
-            height: auto;
-            object-fit: contain;
-            z-index: 1000;
-        }
+/* BEML Logo */
+.beml-logo {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+    z-index: 1000;
+}
 
-        .product-container {
-            display: flex;
-            width: 100%;
-            flex: 1;
-            margin-top: 100px; /* adjust for header */
-        }
+/* Container for product */
+.product-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    flex: 1;
+    margin-top: 40px;
+    gap: 20px;
+}
 
-        /* Left half for image */
-        .product-image {
-            width: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* Left half: Image */
+.product-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .product-image img {
-            width: 75%;
-            height: auto;
-            border-radius: 15px;
-            object-fit: contain;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
+.product-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 15px;
+    object-fit: contain;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
 
-        /* Right half for details */
-        .product-details {
-            width: 50%;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+/* Right half: Details */
+.product-details {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-        .product-title {
-            font-size: 2.5rem;
-            color: #cc5500;
-            margin: 0;
-        }
+.product-title {
+    font-size: 2.2rem;
+    color: #cc5500;
+    margin: 0;
+}
 
-        .product-subtitle {
-            font-size: 1.5rem;
-            color: #aa4400;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+.product-subtitle {
+    font-size: 1.5rem;
+    color: #aa4400;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
 
-        .product-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #333;
-        }
+.product-description li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    color: #333;
+}
 
-        .product-table-title {
-            font-size: 1.2rem;
-            color: #cc5500;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
+.product-table-title {
+    font-size: 1.2rem;
+    color: #cc5500;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
 
-        .product-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-        }
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
 
-        .product-table th,
-        .product-table td {
-            border: 1px solid #ccc;
-            padding: 10px 15px;
-            text-align: left;
-        }
+.product-table th,
+.product-table td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: left;
+}
 
-        .product-table th {
-            background-color: #f2f2f2;
-            color: #333;
-        }
+.product-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
 
-        @media screen and (max-width: 1024px) {
-            .product-container {
-                flex-direction: column;
-                margin-top: 80px;
-            }
+/* Make table horizontally scrollable on mobile */
+.table-wrapper {
+    overflow-x: auto;
+}
 
-            .product-image,
-            .product-details {
-                width: 100%;
-            }
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+    }
 
-            .product-image img {
-                width: 90%;
-            }
+    .product-image,
+    .product-details {
+        width: 100%;
+    }
 
-            .product-details {
-                padding: 20px;
-            }
+    .product-image img {
+        width: 80%;
+    }
 
-            .product-title {
-                font-size: 2rem;
-            }
+    .product-title {
+        font-size: 1.8rem;
+    }
 
-            .product-subtitle {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    .product-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .product-details {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .back-gallery {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        top: 10px;
+        left: 10px;
+    }
+
+    .beml-logo {
+        width: 140px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .product-title {
+        font-size: 1.5rem;
+    }
+
+    .product-subtitle {
+        font-size: 1rem;
+    }
+
+    .product-description li {
+        font-size: 0.9rem;
+    }
+
+    .product-table th,
+    .product-table td {
+        padding: 6px 8px;
+        font-size: 0.85rem;
+    }
+
+    .product-image img {
+        width: 95%;
+        max-width: 300px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- BEML Logo -->
-    <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
+<!-- BEML Logo -->
+<img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
 
-    <div class="product-container">
-        <!-- Left: Image -->
-        <div class="product-image">
-            <img src="./assets/Mumbai_Metro.png" alt="Product Image">
-        </div>
+<!-- Container -->
+<div class="product-container">
+    <!-- Left: Image -->
+    <div class="product-image">
+        <img src="./assets/Mumbai_Metro.png" alt="Mumbai Metro">
+    </div>
 
-        <!-- Right: Details -->
-        <div class="product-details">
-            <h1 class="product-title">Mumbai Metro</h1>
-            <h2 class="product-subtitle">SBU Rail And Metro</h2>
-            <p class="product-description">
-                <li>Unattended Train Operation (UTO)</li>
-                    <li>Advanced Train Control and management System (TCMS)</li>
-                        <li>Designed for Stringent Specific Energy Consumption (SEC)</li>
-                            <li>Designed for latest Fire Standard EN45545 - HL3</li>
-                                <li>Provision of on board OHE monitoring, Track Monitoring System, Wheel Profile Monitoring and Axle Bearing Temperature Monitoring</li>
-                                   
-            </p>
+    <!-- Right: Details -->
+    <div class="product-details">
+        <h1 class="product-title">Mumbai Metro</h1>
+        <h2 class="product-subtitle">SBU Rail And Metro</h2>
+        <ul class="product-description">
+            <li>Unattended Train Operation (UTO)</li>
+            <li>Advanced Train Control and Management System (TCMS)</li>
+            <li>Designed for Stringent Specific Energy Consumption (SEC)</li>
+            <li>Designed for latest Fire Standard EN45545 - HL3</li>
+            <li>Provision of on board OHE monitoring, Track Monitoring System, Wheel Profile Monitoring and Axle Bearing Temperature Monitoring</li>
+        </ul>
 
-            <h3 class="product-table-title">Technical Specifications</h3>
+        <h3 class="product-table-title">Technical Specifications</h3>
+        <div class="table-wrapper">
             <table class="product-table">
                 <tr>
                     <th>Feature</th>
                     <th>Details</th>
                 </tr>
                 <tr>
-                    <td>Train Formation
-                    </td>
-                    <td>DMC–TC–MC–MC–TC–DMC (6 car Train)
-                    </td>
+                    <td>Train Formation</td>
+                    <td>DMC–TC–MC–MC–TC–DMC (6 car Train)</td>
                 </tr>
                 <tr>
-                    <td>Rail Guage</td>
+                    <td>Rail Gauge</td>
                     <td>1435mm</td>
                 </tr>
                 <tr>
                     <td>Operating Speed</td>
-                    <td>80 kmph, Design speed:90 kmph</td>
+                    <td>80 kmph, Design speed: 90 kmph</td>
                 </tr>
                 <tr>
                     <td>Passenger Capacity</td>
                     <td>2280 passengers for 6 car train set</td>
                 </tr>
-                
+                <tr>
                     <td>Current Collection</td>
                     <td>25kV AC, Overhead Collection System(OHE) through Pantograph</td>
                 </tr>
-                
+                <tr>
                     <td>Car Body</td>
                     <td>Stainless steel car body with 2J finish exterior and colored graphic films</td>
                 </tr>
-                
+                <tr>
                     <td>Bogies</td>
                     <td>Two axle Bolsterless type bogie with primary helical coil spring and secondary air suspension with thread brakes</td>
                 </tr>
-                
+                <tr>
                     <td>Propulsion System</td>
                     <td>State of the art 3 Phase Propulsion system with Induction motor, Variable Voltage and Variable Frequency(VVVF) drive with regenerative braking</td>
                 </tr>
-                </tr>
-                
+                <tr>
                     <td>Brake System</td>
                     <td>Regenerative braking blended with pneumatic braking</td>
                 </tr>
-                </tr>
-                
+                <tr>
                     <td>Air-conditioner</td>
                     <td>Roof-mounted Heating Ventilation and Air-conditioning system(HVAC)</td>
                 </tr>
-                </tr>
-                
+                <tr>
                     <td>Door System</td>
                     <td>Electrically operated bi-parting externally hung sliding type door</td>
                 </tr>
-                </tr>
-                
+                <tr>
                     <td>PA/PIS & CCTV System</td>
                     <td>Automatic Passenger Announcement System, Digital Route map on each door, Passenger Saloon Surveillance System</td>
                 </tr>
-                </tr>
-                
+                <tr>
                     <td>Saloon Lighting</td>
                     <td>LED based lighting system with Intelligent Light Control(ILC) resulting in energy saving</td>
                 </tr>
-                </tr>
-                
+                <tr>
                     <td>Interiors</td>
                     <td>Aesthetically appealing interiors with FRP panels, SS grab poles and grab rails, SS seats, floating floor with Rubber covering, Cycle parking facility etc</td>
                 </tr>
             </table>
         </div>
     </div>
+</div>
 
-    <!-- Back to gallery -->
-    <a href="./rail.html" class="back-gallery">Back to Products</a>
+<!-- Back button -->
+<a href="./rail.html" class="back-gallery">Back to Products</a>
 
 </body>
 </html>
