@@ -2,189 +2,219 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kolkata Metro</title>
-<link rel="icon" href="./assets/favicon.ico" type="image/png">
-<style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: url('./assets/bg.jpg') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bangalore Metro</title>
+  <link rel="icon" href="./assets/favicon.ico" type="image/png" />
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: url("./assets/bg.jpg") center/cover no-repeat;
+      overflow-x: hidden;
+    }
 
-/* Logo top-left */
-.beml-logo {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    height: 60px;
-    object-fit: contain;
-    z-index: 1000;
-}
+    /* Back button */
+    .back-gallery {
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      padding: 10px 25px;
+      font-size: 1rem;
+      background: #cc5500;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      z-index: 1000;
+      transition: 0.3s ease;
+      white-space: nowrap;
+    }
 
-/* Back button */
-.back-gallery {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    padding: 10px 20px;
-    background-color: #cc5500;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    z-index: 1000;
-    transition: 0.3s ease;
-}
-.back-gallery:hover {
-    background-color: #aa4400;
-    letter-spacing: 2px;
-}
+    .back-gallery:hover {
+      background: #aa4400;
+      letter-spacing: 2px;
+    }
 
-/* Product container */
-.product-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    margin-top: 100px;
-    padding: 20px;
-    box-sizing: border-box;
-}
+    /* Logo */
+    .beml-logo {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      width: 180px;
+      height: auto;
+      object-fit: contain;
+      z-index: 1000;
+    }
 
-.product-image {
-    flex: 1 1 45%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 280px;
-    margin-bottom: 20px;
-}
-
-.product-image img {
-    width: 90%;
-    max-width: 450px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    object-fit: contain;
-}
-
-.product-details {
-    flex: 1 1 45%;
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(4px);
-    border-radius: 15px;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    min-width: 280px;
-    box-sizing: border-box;
-}
-
-.product-title {
-    font-size: 2rem;
-    color: #cc5500;
-    margin: 0;
-}
-
-.product-subtitle {
-    font-size: 1.2rem;
-    color: #aa4400;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-.product-description {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-.product-description li {
-    margin-bottom: 8px;
-}
-
-.product-table-title {
-    font-size: 1.2rem;
-    color: #cc5500;
-    margin-top: 10px;
-    text-transform: uppercase;
-}
-
-.product-table-wrapper {
-    overflow-x: auto;
-}
-
-.product-table {
-    width: 100%;
-    min-width: 400px;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-}
-
-.product-table th,
-.product-table td {
-    border: 1px solid #ccc;
-    padding: 10px 15px;
-    text-align: left;
-    word-break: break-word;
-}
-
-.product-table th {
-    background-color: #f2f2f2;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
+    /* Layout */
     .product-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 120px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .product-image {
+      flex: 1 1 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 280px;
+    }
+
+    .product-image img {
+      width: 90%;
+      max-width: 450px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      object-fit: contain;
+    }
+
+    .product-details {
+      flex: 1 1 45%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      backdrop-filter: blur(4px);
+      box-sizing: border-box;
+    }
+
+    .product-title {
+      font-size: 2.2rem;
+      color: #cc5500;
+      margin: 0;
+    }
+
+    .product-subtitle {
+      font-size: 1.3rem;
+      color: #aa4400;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .product-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+      list-style: disc;
+      margin-left: 20px;
+    }
+
+    .product-table-title {
+      font-size: 1.2rem;
+      color: #cc5500;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+
+    .product-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 0.95rem;
+    }
+
+    .product-table th,
+    .product-table td {
+      border: 1px solid #ccc;
+      padding: 10px 15px;
+      text-align: left;
+      word-break: break-word;
+    }
+
+    .product-table th {
+      background: #f2f2f2;
+      color: #333;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 1024px) {
+      .product-container {
         flex-direction: column;
         align-items: center;
         margin-top: 100px;
-    }
-    .product-details,
-    .product-image {
-        width: 95%;
-    }
-    .product-image img {
-        width: 100%;
-    }
-}
+      }
 
-@media (max-width: 600px) {
-    .product-title {
+      .product-details {
+        width: 95%;
+        padding: 25px;
+      }
+
+      .product-image img {
+        width: 95%;
+      }
+
+      .beml-logo {
+        width: 150px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .product-title {
         font-size: 1.7rem;
-    }
-    .product-subtitle {
+      }
+
+      .product-subtitle {
         font-size: 1rem;
-    }
-    .product-details {
+      }
+
+      .product-details {
         padding: 20px;
-    }
-    .product-table {
-        font-size: 0.85rem;
-    }
-    .back-gallery {
-        padding: 8px 16px;
+      }
+
+      .product-table {
         font-size: 0.9rem;
+      }
+
+      .beml-logo {
+        width: 130px;
+        right: 10px;
+      }
+
+      .back-gallery {
+        padding: 8px 16px;
+        font-size: 0;
+        left: 10px;
+      }
+
+      .back-gallery::after {
+        content: "Back";
+        font-size: 1rem;
+        color: #fff;
+      }
     }
-}
-</style>
+  </style>
 </head>
 
 <body>
-<!-- Logo -->
-<img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
+  <!-- Back button -->
+  <a href="./rail.html" class="back-gallery">Back to Products</a>
 
-<div class="product-container">
+  <!-- Logo -->
+  <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo" />
+
+  <div class="product-container">
     <!-- Image -->
     <div class="product-image">
-        <img src="./assets/Kolkata_metro.png" alt="Kolkata Metro">
+      <img src="./assets/Kolkata_metro.png" alt="Bangalore Metro" />
     </div>
 
     <!-- Details -->
@@ -259,13 +289,9 @@ body {
                     <td>Interiors</td>
                     <td>Interiors with FRP panels, SS seats, floating floor with PVC floor covering</td>
                 </tr>
-            </table>
-        </div>
+      </table>
     </div>
-</div>
-
-<!-- Back button -->
-<a href="./rail.html" class="back-gallery">Back to Products</a>
-
+  </div>
 </body>
+
 </html>
