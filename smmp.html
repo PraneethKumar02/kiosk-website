@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BEML Products</title>
-    <link rel="stylesheet" href="./css/styles.css">
     <link rel="icon" href="./assets/favicon.ico" type="image/png">
     <style>
         body {
@@ -15,19 +14,19 @@
             min-height: 100vh;
             position: relative;
             font-family: 'Poppins', sans-serif;
-            overflow: auto;
+            overflow-x: hidden;
 
-            /* Background image */
             background-image: url('./assets/bg.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            margin: 0;
         }
 
         .beml-logo {
             position: fixed;
             top: 20px;
-            left: 60px;
+            left: 20px;
             height: 60px;
             object-fit: contain;
             z-index: 1000;
@@ -36,32 +35,31 @@
         .product-container {
             display: flex;
             width: 100%;
+            max-width: 1200px;
             flex: 1;
             margin-top: 100px;
-            /* adjust for logo */
+            gap: 30px;
+            padding: 0 20px;
         }
 
-        /* Left half for image */
         .product-image {
-            width: 50%;
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .product-image img {
-            width: 75%;
-            /* 75% of left half */
+            width: 100%;
+            max-width: 500px;
             height: auto;
             border-radius: 15px;
             object-fit: contain;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Right half for details */
         .product-details {
-            width: 50%;
-            padding: 50px;
+            flex: 1;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -95,10 +93,15 @@
             text-transform: uppercase;
         }
 
+        .product-table-container {
+            overflow-x: auto;
+        }
+
         .product-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.95rem;
+            min-width: 500px;
         }
 
         .product-table th,
@@ -136,15 +139,12 @@
             letter-spacing: 3px;
         }
 
+        /* Tablet */
         @media screen and (max-width: 1024px) {
             .product-container {
                 flex-direction: column;
                 margin-top: 80px;
-            }
-
-            .product-image,
-            .product-details {
-                width: 100%;
+                gap: 20px;
             }
 
             .product-image img {
@@ -152,7 +152,7 @@
             }
 
             .product-details {
-                padding: 20px;
+                padding: 0 20px;
             }
 
             .product-title {
@@ -161,6 +161,50 @@
 
             .product-subtitle {
                 font-size: 1.2rem;
+            }
+        }
+
+        /* Mobile */
+        @media screen and (max-width: 600px) {
+            .product-container {
+                flex-direction: column;
+                margin-top: 60px;
+            }
+
+            .product-image img {
+                width: 100%;
+            }
+
+            .product-title {
+                font-size: 1.5rem;
+            }
+
+            .product-subtitle {
+                font-size: 1rem;
+            }
+
+            .product-description {
+                font-size: 0.9rem;
+            }
+
+            .product-table-title {
+                font-size: 1rem;
+            }
+
+            .product-table {
+                font-size: 0.85rem;
+                min-width: 400px;
+            }
+
+            .back-gallery {
+                padding: 8px 20px;
+                font-size: 0.85rem;
+            }
+
+            .beml-logo {
+                height: 50px;
+                top: 10px;
+                left: 10px;
             }
         }
     </style>
@@ -179,45 +223,44 @@
 
         <!-- Right: Details -->
         <div class="product-details">
-            <h1 class="product-title">Sheet Metal / Machined Parts
-            </h1>
-            <h2 class="product-subtitle">SBU </h2>
+            <h1 class="product-title">Sheet Metal / Machined Parts</h1>
+            <h2 class="product-subtitle">SBU</h2>
             <p class="product-description">
                 They are used in helicopters like ALH, Cheetah/Chetak, LCH, and LUH. <br>
-Produced at dedicated facilities in Mysore with advanced machinery.<br>
-In-house designed form tools are used for forming operations.<br>
-Quality checks include fluorescent penetrant testing.
+                Produced at dedicated facilities in Mysore with advanced machinery.<br>
+                In-house designed form tools are used for forming operations.<br>
+                Quality checks include fluorescent penetrant testing.
             </p>
 
             <h3 class="product-table-title">Technical Specifications</h3>
-            <table class="product-table">
-                <tr>
-                    <th>Specification</th>
-                    <th>Parameter</th>
-                </tr>
-                <tr>
-                    <td>Material</td>
-                    <td>Titanium and Aluminium Alloys</td>
-                </tr>
-                <tr>
-                    <td>Helicopter Types</td>
-                    <td>Used in ALH, Cheetah/Chetak, LCH, LUH, etc.</td>
-                </tr>
-                <tr>
-                    <td>Manufacturing Facility</td>
-                    <td>Located in Mysuru with advanced machinery (CNC Router, Shearing Machine, etc.)</td>
-                </tr>
-                <tr>
-                    <td>Forming Tools</td>
-                    <td>Designed and developed in-house for forming operations
-                    </td>
-                </tr>
-                <tr>
-                    <td>Quality Checks</td>
-                    <td>Includes fluorescent penetrant testing and other quality control measures
-                    </td>
-                </tr>
-            </table>
+            <div class="product-table-container">
+                <table class="product-table">
+                    <tr>
+                        <th>Specification</th>
+                        <th>Parameter</th>
+                    </tr>
+                    <tr>
+                        <td>Material</td>
+                        <td>Titanium and Aluminium Alloys</td>
+                    </tr>
+                    <tr>
+                        <td>Helicopter Types</td>
+                        <td>Used in ALH, Cheetah/Chetak, LCH, LUH, etc.</td>
+                    </tr>
+                    <tr>
+                        <td>Manufacturing Facility</td>
+                        <td>Located in Mysuru with advanced machinery (CNC Router, Shearing Machine, etc.)</td>
+                    </tr>
+                    <tr>
+                        <td>Forming Tools</td>
+                        <td>Designed and developed in-house for forming operations</td>
+                    </tr>
+                    <tr>
+                        <td>Quality Checks</td>
+                        <td>Includes fluorescent penetrant testing and other quality control measures</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
