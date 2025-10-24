@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Info</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./assets/favicon.ico" type="image/png">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+            overflow: auto;
+
+            /* Background image */
+            background-image: url('./assets/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Back to Products button on top-left */
+        .back-gallery {
+            position: fixed;
+            top: 20px;
+            left: 40px;
+            padding: 10px 25px;
+            font-size: 1rem;
+            background: #cc5500;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 1000;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .back-gallery:hover {
+            background: #aa4400;
+            letter-spacing: 3px;
+        }
+
+        /* BEML Logo on top-right */
+        .beml-logo {
+            position: fixed;
+            top: 20px;
+            right: 60px;
+            width: 200px; /* width same as verticals page */
+            height: auto;
+            object-fit: contain;
+            z-index: 1000;
+        }
+
+        .product-container {
+            display: flex;
+            width: 100%;
+            flex: 1;
+            margin-top: 100px; /* adjust for header */
+        }
+
+        /* Left half for image */
+        .product-image {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            width: 75%;
+            height: auto;
+            border-radius: 15px;
+            object-fit: contain;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Right half for details */
+        .product-details {
+            width: 50%;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            color: #cc5500;
+            margin: 0;
+        }
+
+        .product-subtitle {
+            font-size: 1.5rem;
+            color: #aa4400;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .product-table-title {
+            font-size: 1.2rem;
+            color: #cc5500;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .product-table th,
+        .product-table td {
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            text-align: left;
+        }
+
+        .product-table th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .product-container {
+                flex-direction: column;
+                margin-top: 80px;
+            }
+
+            .product-image,
+            .product-details {
+                width: 100%;
+            }
+
+            .product-image img {
+                width: 90%;
+            }
+
+            .product-details {
+                padding: 20px;
+            }
+
+            .product-title {
+                font-size: 2rem;
+            }
+
+            .product-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+   <!-- BEML Logo -->
+    <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
+
+    <div class="product-container">
+        <!-- Left: Image -->
+        <div class="product-image">
+            <img src="./assets/arrv.jpg" alt="Product Image">
+        </div>
+
+        <!-- Right: Details -->
+        <div class="product-details">
+            <h1 class="product-title">ARJUN ARRV</h1>
+            <h2 class="product-subtitle">SBU Armoured</h2>
+            <p class="product-description">
+                <li>Recovery and repair of MBTs in field</li>
+                    <li>Assembly & disassembly of aggregates in field</li>
+                        <li>Complete set of tools for immediate repair</li>
+                            <li> Hull repair using in-built welding and cutting facilities</li>
+                                <li>Recovery of bogged vehicle in difficult terrain</li>
+                                    <li>Equipped with remote control Air Defence weapon system</li>
+
+
+            </p>
+
+            <h3 class="product-table-title">Technical Specifications</h3>
+            <table class="product-table">
+                <tr>
+                    <th>Feature</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Main Winch
+                    </td>
+                    <td>50T Double capstan-type, with pulling
+                    </td>
+                </tr>
+                <tr>
+                    <td>Auxiliry Winch</td>
+                    <td>2T Double capstan-type</td>
+                </tr>
+                <tr>
+                    <td>Crane</td>
+                    <td>20T with 3m working radius</td>
+                </tr>
+                <tr>
+                    <td>Overall Length</td>
+                    <td>11000±50mm </td>
+                </tr>
+                
+                    <td>Overall Height</td>
+                    <td>3290±50mm</td>
+                </tr>
+                
+                    <td>Maximum Speed</td>
+                    <td>58 kmph</td>
+                </tr>
+                
+                    <td>Fuel Capacity</td>
+                    <td>2000 ltrs</td>
+                </tr>
+                
+                    <td>Suspension</td>
+                    <td>Advanced Hydro Pneumatic</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Back to gallery -->
+    <a href="./defence.html" class="back-gallery">Back to Products</a>
+
+</body>
+</html>

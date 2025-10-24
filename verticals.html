@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, orientation=portrait" />
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+  <title>BEML Verticals</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --overlay-color: #31385c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    /* Back to Home button at top-left */
+    .back-home {
+      position: absolute;
+      top: 25px;
+      left: 40px;
+      background: #fff;
+      color: #111;
+      padding: 10px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: 0.2s;
+      z-index: 10;
+    }
+
+    .back-home:hover {
+      letter-spacing: 6px;
+    }
+
+    /* Logo at top-right */
+    header {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      z-index: 10;
+    }
+
+    header img {
+      width: 200px;
+      height: auto;
+    }
+
+    /* Column Layout */
+    .verticals-container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .vertical-section {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: flex-end; /* move content to bottom */
+      justify-content: center;
+      overflow: hidden;
+      transition: 0.4s ease;
+      border-right: 2px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 40px; /* distance from bottom */
+    }
+
+    .vertical-section:last-child {
+      border-right: none;
+    }
+
+    .vertical-section img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: 0.5s ease;
+    }
+
+    .vertical-section:hover img {
+      filter: brightness(90%);
+      transform: scale(1.05);
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--overlay-color);
+      mix-blend-mode: overlay;
+    }
+
+    .vertical-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      top: auto;
+      transform: none;
+    }
+
+    .vertical-text h2 {
+      font-size: 3em;
+      font-weight: 800;
+      line-height: 1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .vertical-text a {
+      display: inline-block;
+      font-size: 1em;
+      background: #fff;
+      padding: 10px 30px;
+      text-decoration: none;
+      color: #111;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: 0.2s ease;
+    }
+
+    .vertical-text a:hover {
+      letter-spacing: 6px;
+      background: #fff;
+      color: #111;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .verticals-container {
+        flex-direction: column;
+      }
+
+      .vertical-section {
+        height: 33.33vh;
+        border-right: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 20px;
+      }
+
+      .vertical-section:last-child {
+        border-bottom: none;
+      }
+
+      .vertical-text h2 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Back to Home button on top-left -->
+  <a href="./index.html" class="back-home">Back to Home</a>
+
+  <!-- Logo on top-right -->
+  <header>
+    <img src="./assets/logo.png" alt="BEML logo" />
+  </header>
+
+  <div class="verticals-container">
+    <!-- Defence & Aerospace -->
+    <div class="vertical-section">
+      <img src="./assets/defence.jpg" alt="Defence & Aerospace" />
+      <div class="overlay"></div>
+      <div class="vertical-text">
+        <h2>Defence & <br>Aerospace</h2>
+        <a href="./defence.html">Explore</a>
+      </div>
+    </div>
+
+    <!-- Mining & Construction -->
+    <div class="vertical-section">
+      <img src="./assets/mining.jpg" alt="Mining & Construction" />
+      <div class="overlay"></div>
+      <div class="vertical-text">
+        <h2>Mining & <br>Construction</h2>
+        <a href="./mining.html">Explore</a>
+      </div>
+    </div>
+
+    <!-- Rail & Metro -->
+    <div class="vertical-section">
+      <img src="./assets/rail.jpg" alt="Rail & Metro" />
+      <div class="overlay"></div>
+      <div class="vertical-text">
+        <h2>Rail & <br>Metro</h2>
+        <a href="./rail.html">Explore</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

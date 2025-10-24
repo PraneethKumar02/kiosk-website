@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Info</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./assets/favicon.ico" type="image/png">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+            overflow: auto;
+
+            /* Background image */
+            background-image: url('./assets/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Back to Products button on top-left */
+        .back-gallery {
+            position: fixed;
+            top: 20px;
+            left: 40px;
+            padding: 10px 25px;
+            font-size: 1rem;
+            background: #cc5500;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 1000;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .back-gallery:hover {
+            background: #aa4400;
+            letter-spacing: 3px;
+        }
+
+        /* BEML Logo on top-right */
+        .beml-logo {
+            position: fixed;
+            top: 20px;
+            right: 60px;
+            width: 200px; /* width same as verticals page */
+            height: auto;
+            object-fit: contain;
+            z-index: 1000;
+        }
+
+        .product-container {
+            display: flex;
+            width: 100%;
+            flex: 1;
+            margin-top: 100px; /* adjust for header */
+        }
+
+        /* Left half for image */
+        .product-image {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            width: 75%;
+            height: auto;
+            border-radius: 15px;
+            object-fit: contain;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Right half for details */
+        .product-details {
+            width: 50%;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            color: #cc5500;
+            margin: 0;
+        }
+
+        .product-subtitle {
+            font-size: 1.5rem;
+            color: #aa4400;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .product-table-title {
+            font-size: 1.2rem;
+            color: #cc5500;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .product-table th,
+        .product-table td {
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            text-align: left;
+        }
+
+        .product-table th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .product-container {
+                flex-direction: column;
+                margin-top: 80px;
+            }
+
+            .product-image,
+            .product-details {
+                width: 100%;
+            }
+
+            .product-image img {
+                width: 90%;
+            }
+
+            .product-details {
+                padding: 20px;
+            }
+
+            .product-title {
+                font-size: 2rem;
+            }
+
+            .product-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BEML Logo -->
+    <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
+
+    <div class="product-container">
+        <!-- Left: Image -->
+        <div class="product-image">
+            <img src="./assets/Indian.png" alt="Product Image">
+        </div>
+
+        <!-- Right: Details -->
+        <div class="product-details">
+            <h1 class="product-title">Indian Railways- Stainless steel EMU</h1>
+            <h2 class="product-subtitle">SBU Rail And Metro</h2>
+            <p class="product-description">
+                <li>Aesthetically Designed Interior FRP paneling</li>
+                    <li>Windows-Wider horizontal sliding shutter type with toughened glass</li>
+                         <li>Polycarbonate moulded seats</li>
+                             <li>Compartment illumination with fluorescent light(110 V AC)</li>
+                                <li>FRP cab mask & Aesthetically designed doors(110 V AC)</li>
+            </p>
+
+            <h3 class="product-table-title">Technical Specifications</h3>
+            <table class="product-table">
+                <tr>
+                    <th>Feature</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Max. Speed
+                    </td>
+                    <td>105 kmph
+                    </td>
+                </tr>
+                <tr>
+                    <td>Axle Load (Max)</td>
+                    <td>20 Tonnes (Motor Coach)
+                    <br>20 Tonnes (Trailer Coach)</td>
+                </tr>
+                <tr>
+                    <td>Tare weight (max)</td>
+                    <td>57 Tonnes (Motor Coach)
+                    <br>34 Tonnes (Trailer Coach)</td>
+                </tr>
+                <tr>
+                    <td>Braking System</td>
+                    <td>Electro Pneumatic compressed Air Brake with bogie Mounted Brake Cylinder & graduate application & release system</td>
+                </tr>
+                
+                    <td>Bogie</td>
+                    <td>Wheel Arrangement - Bo Bo | Two Stage Suspension – Primary /Helical & Secondary Air Spring</td>
+                </tr>
+                
+                    <td>Electrical System</td>
+                    <td>Overhead Traction: 25 kV AC Single Phase 
+                        <br>Control Equipment Permits Multiple Operations of Units
+                        <br>4 Traction Motors of 167 KW each per motor coach</td>
+                </tr>
+                
+                    <td>Passenger Capacity</td>
+                    <td>4108 (seating: 910; standing: 3198)</td>
+                </tr>
+                
+                    <td>Unit Formation</td>
+                    <td>Driving Motor Coach + 1 Trailer coach with Ladies Compartment + 1 Trailer coach with Vendors Compartment</td>
+                </tr>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Back to gallery -->
+    <a href="./rail.html" class="back-gallery">Back to Products</a>
+
+</body>
+</html>

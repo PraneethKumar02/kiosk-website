@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Info</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./assets/favicon.ico" type="image/png">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+            overflow: auto;
+
+            /* Background image */
+            background-image: url('./assets/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Back to Products button on top-left */
+        .back-gallery {
+            position: fixed;
+            top: 20px;
+            left: 40px;
+            padding: 10px 25px;
+            font-size: 1rem;
+            background: #cc5500;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 1000;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .back-gallery:hover {
+            background: #aa4400;
+            letter-spacing: 3px;
+        }
+
+        /* BEML Logo on top-right */
+        .beml-logo {
+            position: fixed;
+            top: 20px;
+            right: 60px;
+            width: 200px; /* width same as verticals page */
+            height: auto;
+            object-fit: contain;
+            z-index: 1000;
+        }
+
+        .product-container {
+            display: flex;
+            width: 100%;
+            flex: 1;
+            margin-top: 100px; /* adjust for header */
+        }
+
+        /* Left half for image */
+        .product-image {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            width: 75%;
+            height: auto;
+            border-radius: 15px;
+            object-fit: contain;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Right half for details */
+        .product-details {
+            width: 50%;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            color: #cc5500;
+            margin: 0;
+        }
+
+        .product-subtitle {
+            font-size: 1.5rem;
+            color: #aa4400;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .product-table-title {
+            font-size: 1.2rem;
+            color: #cc5500;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .product-table th,
+        .product-table td {
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            text-align: left;
+        }
+
+        .product-table th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .product-container {
+                flex-direction: column;
+                margin-top: 80px;
+            }
+
+            .product-image,
+            .product-details {
+                width: 100%;
+            }
+
+            .product-image img {
+                width: 90%;
+            }
+
+            .product-details {
+                padding: 20px;
+            }
+
+            .product-title {
+                font-size: 2rem;
+            }
+
+            .product-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Back to Products button -->
+    <a href="./defence.html" class="back-gallery">Back to Products</a>
+
+    <!-- BEML Logo -->
+    <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
+
+    <div class="product-container">
+        <!-- Left: Image -->
+        <div class="product-image">
+            <img src="./assets/wheel.jpg" alt="Product Image">
+        </div>
+
+        <!-- Right: Details -->
+        <div class="product-details">
+            <h1 class="product-title">Wheel Loaders</h1>
+            <h2 class="product-subtitle">SBU Mining</h2>
+            <p class="product-description">
+                <li>BEML Wheel Loaders are powered by robust engines offering up to 400 HP, delivering exceptional lifting and loading capabilities</li>
+                <li>Designed for mining, construction, and material handling, BEML Wheel Loaders handle a variety of materials with ease.</li>
+                <li>Featuring heavy-duty lift arms and hydraulics, these loaders provide smooth and efficient material handling.</li>
+                <li>Equipped with spacious, air-conditioned cabins for reduced operator fatigue and increased productivity.</li>
+            </p>
+
+            <h3 class="product-table-title">Technical Specifications</h3>
+            <table class="product-table">
+                <tr>
+                    <th>Feature</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Engine Power</td>
+                    <td>120 HP – 400 HP</td>
+                </tr>
+                <tr>
+                    <td>Bucket Capacity</td>
+                    <td>2.5 m³ – 7.5 m³</td>
+                </tr>
+                <tr>
+                    <td>Operating Weight</td>
+                    <td>10,000 kg to 40,000 kg</td>
+                </tr>
+                <tr>
+                    <td>Maximum Dump Height</td>
+                    <td>3.5 m – 4.5 m</td>
+                </tr>
+                <tr>
+                    <td>Maximum Speed</td>
+                    <td>25 km/h – 40 km/h</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
