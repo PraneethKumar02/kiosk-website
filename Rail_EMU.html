@@ -2,232 +2,219 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diesel EMU (DEMU) Info</title>
-<link rel="stylesheet" href="./css/styles.css">
-<link rel="icon" href="./assets/favicon.ico" type="image/png">
-<style>
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
-    background-image: url('./assets/bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding-top: 80px; /* space for header */
-}
-
-/* Back to Products button */
-.back-gallery {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    background: #cc5500;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    z-index: 1000;
-    text-decoration: none;
-    transition: 0.2s;
-}
-
-.back-gallery:hover {
-    background: #aa4400;
-    letter-spacing: 3px;
-}
-
-/* BEML Logo */
-.beml-logo {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 180px;
-    height: auto;
-    object-fit: contain;
-    z-index: 1000;
-}
-
-/* Container for product */
-.product-container {
-    display: flex;
-    width: 90%;
-    max-width: 1200px;
-    flex: 1;
-    margin-top: 40px;
-    gap: 20px;
-}
-
-/* Left half: Image */
-.product-image {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.product-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 15px;
-    object-fit: contain;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* Right half: Details */
-.product-details {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.product-title {
-    font-size: 2.2rem;
-    color: #cc5500;
-    margin: 0;
-}
-
-.product-subtitle {
-    font-size: 1.5rem;
-    color: #aa4400;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.product-description {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-.product-description ul {
-    padding-left: 20px;
-}
-
-.product-description li {
-    margin-bottom: 8px;
-}
-
-/* Table */
-.product-table-title {
-    font-size: 1.2rem;
-    color: #cc5500;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.table-wrapper {
-    overflow-x: auto;
-}
-
-.product-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-    min-width: 600px;
-}
-
-.product-table th,
-.product-table td {
-    border: 1px solid #ccc;
-    padding: 8px 12px;
-    text-align: left;
-}
-
-.product-table th {
-    background-color: #f2f2f2;
-    color: #333;
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 1024px) {
-    .product-container {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 60px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bangalore Metro</title>
+  <link rel="icon" href="./assets/favicon.ico" type="image/png" />
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: url("./assets/bg.jpg") center/cover no-repeat;
+      overflow-x: hidden;
     }
 
-    .product-image,
-    .product-details {
-        width: 100%;
-    }
-
-    .product-image img {
-        width: 80%;
-    }
-
-    .product-title {
-        font-size: 1.8rem;
-    }
-
-    .product-subtitle {
-        font-size: 1.2rem;
-    }
-}
-
-@media screen and (max-width: 600px) {
+    /* Back button */
     .back-gallery {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-        top: 10px;
-        left: 10px;
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      padding: 10px 25px;
+      font-size: 1rem;
+      background: #cc5500;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      z-index: 1000;
+      transition: 0.3s ease;
+      white-space: nowrap;
     }
 
+    .back-gallery:hover {
+      background: #aa4400;
+      letter-spacing: 2px;
+    }
+
+    /* Logo */
     .beml-logo {
-        width: 140px;
-        top: 10px;
-        right: 10px;
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      width: 180px;
+      height: auto;
+      object-fit: contain;
+      z-index: 1000;
     }
 
-    .product-title {
-        font-size: 1.5rem;
+    /* Layout */
+    .product-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 120px;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
-    .product-subtitle {
-        font-size: 1rem;
-    }
-
-    .product-description li {
-        font-size: 0.9rem;
+    .product-image {
+      flex: 1 1 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 280px;
     }
 
     .product-image img {
-        width: 95%;
-        max-width: 300px;
+      width: 90%;
+      max-width: 450px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      object-fit: contain;
+    }
+
+    .product-details {
+      flex: 1 1 45%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      backdrop-filter: blur(4px);
+      box-sizing: border-box;
+    }
+
+    .product-title {
+      font-size: 2.2rem;
+      color: #cc5500;
+      margin: 0;
+    }
+
+    .product-subtitle {
+      font-size: 1.3rem;
+      color: #aa4400;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .product-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+      list-style: disc;
+      margin-left: 20px;
+    }
+
+    .product-table-title {
+      font-size: 1.2rem;
+      color: #cc5500;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+
+    .product-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 0.95rem;
     }
 
     .product-table th,
     .product-table td {
-        padding: 6px 8px;
-        font-size: 0.85rem;
+      border: 1px solid #ccc;
+      padding: 10px 15px;
+      text-align: left;
+      word-break: break-word;
     }
-}
-</style>
+
+    .product-table th {
+      background: #f2f2f2;
+      color: #333;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 1024px) {
+      .product-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+      }
+
+      .product-details {
+        width: 95%;
+        padding: 25px;
+      }
+
+      .product-image img {
+        width: 95%;
+      }
+
+      .beml-logo {
+        width: 150px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .product-title {
+        font-size: 1.7rem;
+      }
+
+      .product-subtitle {
+        font-size: 1rem;
+      }
+
+      .product-details {
+        padding: 20px;
+      }
+
+      .product-table {
+        font-size: 0.9rem;
+      }
+
+      .beml-logo {
+        width: 130px;
+        right: 10px;
+      }
+
+      .back-gallery {
+        padding: 8px 16px;
+        font-size: 0;
+        left: 10px;
+      }
+
+      .back-gallery::after {
+        content: "Back";
+        font-size: 1rem;
+        color: #fff;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Back button -->
+  <a href="./rail.html" class="back-gallery">Back to Products</a>
 
-<!-- BEML Logo -->
-<img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
+  <!-- Logo -->
+  <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo" />
 
-<div class="product-container">
-    <!-- Left: Image -->
+  <div class="product-container">
+    <!-- Image -->
     <div class="product-image">
-        <img src="./assets/Rail_EMU.png" alt="Diesel EMU">
+      <img src="./assets/Rail_EMU.png" alt="Diesel EMU" />
     </div>
 
     <!-- Right: Details -->
@@ -281,13 +268,11 @@ body {
                     <td>Passenger Capacity For 8 Car trainset</td>
                     <td>Standing-1432<br> Seating -682<br> Total -2114</td>
                 </tr>
-            </table>
-        </div>
+      </table>
     </div>
-</div>
-
-<!-- Back to gallery -->
-<a href="./rail.html" class="back-gallery">Back to Products</a>
-
+  </div>
 </body>
+
 </html>
+
+
