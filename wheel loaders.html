@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Info</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <title>Wheel Loaders</title>
     <link rel="icon" href="./assets/favicon.ico" type="image/png">
     <style>
         body {
@@ -13,33 +12,30 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            position: relative;
             font-family: 'Poppins', sans-serif;
-            overflow: auto;
-
-            /* Background image */
             background-image: url('./assets/bg.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Back to Products button on top-left */
+        /* Back button */
         .back-gallery {
             position: fixed;
             top: 20px;
-            left: 40px;
+            left: 20px;
             padding: 10px 25px;
             font-size: 1rem;
             background: #cc5500;
             color: #fff;
-            border: none;
             border-radius: 6px;
-            cursor: pointer;
+            text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1px;
             z-index: 1000;
-            text-decoration: none;
             transition: 0.2s;
         }
 
@@ -48,30 +44,29 @@
             letter-spacing: 3px;
         }
 
-        /* BEML Logo on top-right */
+        /* Logo */
         .beml-logo {
             position: fixed;
             top: 20px;
-            right: 60px;
-            width: 200px; /* width same as verticals page */
+            right: 20px;
+            width: 200px;
             height: auto;
-            object-fit: contain;
             z-index: 1000;
         }
 
+        /* Product container */
         .product-container {
             display: flex;
             width: 100%;
-            flex: 1;
-            margin-top: 100px; /* adjust for header */
+            margin-top: 100px;
+            padding: 20px;
         }
 
-        /* Left half for image */
         .product-image {
             width: 50%;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
         }
 
         .product-image img {
@@ -82,7 +77,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Right half for details */
         .product-details {
             width: 50%;
             padding: 50px;
@@ -111,6 +105,10 @@
             color: #333;
         }
 
+        .product-description li {
+            margin-bottom: 10px;
+        }
+
         .product-table-title {
             font-size: 1.2rem;
             color: #cc5500;
@@ -136,6 +134,10 @@
             background-color: #f2f2f2;
             color: #333;
         }
+
+        /* ===========================
+           RESPONSIVE DESIGN
+        ============================*/
 
         @media screen and (max-width: 1024px) {
             .product-container {
@@ -163,6 +165,43 @@
             .product-subtitle {
                 font-size: 1.2rem;
             }
+
+            .product-description li {
+                font-size: 0.95rem;
+            }
+
+            .product-table {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .back-gallery {
+                top: 10px;
+                left: 10px;
+                padding: 6px 15px;
+                font-size: 0.85rem;
+            }
+
+            .beml-logo {
+                width: 120px;
+            }
+
+            .product-title {
+                font-size: 1.8rem;
+            }
+
+            .product-subtitle {
+                font-size: 1rem;
+            }
+
+            .product-description li {
+                font-size: 0.9rem;
+            }
+
+            .product-table {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -170,7 +209,7 @@
 <body>
 
     <!-- Back to Products button -->
-    <a href="./defence.html" class="back-gallery">Back to Products</a>
+    <a href="./mining.html" class="back-gallery">Back to Products</a>
 
     <!-- BEML Logo -->
     <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
@@ -185,12 +224,12 @@
         <div class="product-details">
             <h1 class="product-title">Wheel Loaders</h1>
             <h2 class="product-subtitle">SBU Mining</h2>
-            <p class="product-description">
-                <li>BEML Wheel Loaders are powered by robust engines offering up to 400 HP, delivering exceptional lifting and loading capabilities</li>
+            <ul class="product-description">
+                <li>BEML Wheel Loaders are powered by robust engines offering up to 400 HP, delivering exceptional lifting and loading capabilities.</li>
                 <li>Designed for mining, construction, and material handling, BEML Wheel Loaders handle a variety of materials with ease.</li>
                 <li>Featuring heavy-duty lift arms and hydraulics, these loaders provide smooth and efficient material handling.</li>
                 <li>Equipped with spacious, air-conditioned cabins for reduced operator fatigue and increased productivity.</li>
-            </p>
+            </ul>
 
             <h3 class="product-table-title">Technical Specifications</h3>
             <table class="product-table">
