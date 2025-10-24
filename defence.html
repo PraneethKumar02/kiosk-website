@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BEML Defence and Aerospace</title>
-    <link rel="stylesheet" href="./css/styles.css">
     <style>
+        /* Reset */
         body, html {
             margin: 0;
             padding: 0;
@@ -22,6 +22,7 @@
             min-height: 100vh;
         }
 
+        /* Background */
         .background-container {
             position: fixed;
             top: 0;
@@ -48,26 +49,24 @@
             background-color: rgba(0,0,0,0.4);
         }
 
-        .beml-logo, .crew-carousel, .crew-info, #back-home {
-            position: relative;
-            z-index: 1;
-        }
-
+        /* Logo */
         .beml-logo {
             position: fixed;
             top: 20px;
-            right: 60px;
-            height: 80px;
-            object-fit: contain;
+            right: 40px;
+            height: 70px;
+            z-index: 1;
         }
 
+        /* Carousel */
         .crew-carousel {
             width: 100%;
             max-width: 1400px;
-            height: 550px;
+            height: 500px;
             position: relative;
             perspective: 1000px;
             margin-top: 120px;
+            z-index: 1;
         }
 
         .crew-track {
@@ -88,7 +87,7 @@
             border-radius: 20px;
             overflow: hidden;
             background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
             transition: all 0.8s ease;
             cursor: pointer;
         }
@@ -100,6 +99,7 @@
             padding: 20px;
         }
 
+        /* Card positions */
         .crew-card.center { z-index: 10; transform: scale(1.15); }
         .crew-card.left-1 { transform: translateX(-250px) scale(0.95); opacity: 0.85; filter: grayscale(80%); }
         .crew-card.left-2 { transform: translateX(-500px) scale(0.85); opacity: 0.65; filter: grayscale(100%); }
@@ -107,17 +107,19 @@
         .crew-card.right-2 { transform: translateX(500px) scale(0.85); opacity: 0.65; filter: grayscale(100%); }
         .crew-card.hidden { opacity: 0; pointer-events: none; }
 
+        /* Crew info */
         .crew-info {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 30px;
             background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
-            padding: 20px 40px;
+            padding: 15px 30px;
             border-radius: 10px;
             display: inline-block;
+            z-index: 1;
         }
 
         .crew-name {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: #fff;
             text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
             letter-spacing: 1px;
@@ -132,16 +134,16 @@
             text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
         }
 
+        /* Dots */
         .crew-dots {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         .crew-dot {
-            width: 12px;
-            height: 12px;
+            width: 12px; height: 12px;
             border-radius: 50%;
             background: rgba(255,255,255,0.3);
             cursor: pointer;
@@ -149,31 +151,32 @@
 
         .crew-dot.active { background: #fff; }
 
+        /* Arrows */
         .crew-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(107, 142, 35, 0.8);
+            background: rgba(107,142,35,0.8);
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 45px; height: 45px;
             border-radius: 50%;
             border: none;
-            font-size: 2rem;
+            font-size: 1.8rem;
             cursor: pointer;
             z-index: 2;
         }
 
-        .crew-arrow:hover { background: rgba(107, 142, 35, 1); }
-        .crew-left { left: 0; }
-        .crew-right { right: 0; }
+        .crew-arrow:hover { background: rgba(107,142,35,1); }
+        .crew-left { left: 5px; }
+        .crew-right { right: 5px; }
 
+        /* Back button */
         #back-home {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            padding: 10px 30px;
-            font-size: 1em;
+            padding: 10px 25px;
+            font-size: 1rem;
             background: #fff;
             color: #111;
             text-transform: uppercase;
@@ -182,26 +185,50 @@
             cursor: pointer;
             border-radius: 6px;
             transition: 0.2s;
+            z-index: 1;
         }
 
         #back-home:hover { letter-spacing: 6px; }
 
-        @media screen and (max-width: 768px) {
+        /* Tablet */
+        @media screen and (max-width: 1024px) {
+            .crew-carousel { height: 450px; }
             .crew-card { width: 300px; height: 400px; }
-            .crew-card.center { transform: scale(1.1); }
+            .crew-card.left-1 { transform: translateX(-180px) scale(0.95); }
+            .crew-card.left-2 { transform: translateX(-360px) scale(0.85); }
+            .crew-card.right-1 { transform: translateX(180px) scale(0.95); }
+            .crew-card.right-2 { transform: translateX(360px) scale(0.85); }
             .crew-name { font-size: 2rem; }
             .crew-role { font-size: 1rem; }
             .crew-arrow { width: 40px; height: 40px; font-size: 1.5rem; }
         }
+
+        /* Mobile */
+        @media screen and (max-width: 600px) {
+            .crew-carousel { height: 350px; margin-top: 100px; }
+            .crew-card { width: 220px; height: 300px; }
+            .crew-card.left-1 { transform: translateX(-120px) scale(0.9); }
+            .crew-card.left-2 { transform: translateX(-240px) scale(0.8); }
+            .crew-card.right-1 { transform: translateX(120px) scale(0.9); }
+            .crew-card.right-2 { transform: translateX(240px) scale(0.8); }
+            .crew-name { font-size: 1.5rem; }
+            .crew-role { font-size: 0.9rem; }
+            .crew-arrow { width: 35px; height: 35px; font-size: 1.2rem; }
+            .crew-dots { gap: 6px; }
+            .beml-logo { height: 50px; right: 20px; }
+        }
     </style>
 </head>
 <body>
+    <!-- Background -->
     <div class="background-container">
         <img src="./assets/defence.jpg" alt="Defence background">
     </div>
 
+    <!-- Logo -->
     <img src="./assets/logo.png" alt="BEML Logo" class="beml-logo">
 
+    <!-- Carousel -->
     <div class="crew-carousel">
         <button class="crew-arrow crew-left" aria-label="Previous slide">‹</button>
         <div class="crew-track">
@@ -217,11 +244,13 @@
         <button class="crew-arrow crew-right" aria-label="Next slide">›</button>
     </div>
 
+    <!-- Crew info -->
     <div class="crew-info">
         <h2 class="crew-name">BEML HMV 12x12</h2>
         <p class="crew-role"></p>
     </div>
 
+    <!-- Dots -->
     <div class="crew-dots">
         <div class="crew-dot active" data-index="0"></div>
         <div class="crew-dot" data-index="1"></div>
@@ -233,8 +262,10 @@
         <div class="crew-dot" data-index="7"></div>
     </div>
 
+    <!-- Back button -->
     <button id="back-home" onclick="location.href='index.html'">Back to Home</button>
 
+    <!-- JavaScript -->
     <script>
         const crewCards = document.querySelectorAll('.crew-card');
         const crewDots = document.querySelectorAll('.crew-dot');
