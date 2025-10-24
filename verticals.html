@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, orientation=portrait" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
   <title>BEML Verticals</title>
 
@@ -24,18 +24,18 @@
     body {
       background: #000;
       color: #fff;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
-    /* Back to Home button at top-left */
+    /* Back to Home button */
     .back-home {
-      position: absolute;
-      top: 25px;
-      left: 40px;
+      position: fixed;
+      top: 20px;
+      left: 20px;
       background: #fff;
       color: #111;
-      padding: 10px 30px;
-      border-radius: 30px;
+      padding: 10px 25px;
+      border-radius: 25px;
       text-decoration: none;
       font-weight: 500;
       text-transform: uppercase;
@@ -45,23 +45,24 @@
     }
 
     .back-home:hover {
-      letter-spacing: 6px;
+      letter-spacing: 5px;
     }
 
-    /* Logo at top-right */
+    /* Logo */
     header {
-      position: absolute;
+      position: fixed;
       top: 20px;
-      right: 40px;
+      right: 20px;
       z-index: 10;
     }
 
     header img {
-      width: 200px;
+      width: 180px;
       height: auto;
+      object-fit: contain;
     }
 
-    /* Column Layout */
+    /* Container for verticals */
     .verticals-container {
       display: flex;
       flex-direction: row;
@@ -73,12 +74,12 @@
       position: relative;
       flex: 1;
       display: flex;
-      align-items: flex-end; /* move content to bottom */
+      align-items: flex-end;
       justify-content: center;
       overflow: hidden;
       transition: 0.4s ease;
       border-right: 2px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 40px; /* distance from bottom */
+      padding-bottom: 50px;
     }
 
     .vertical-section:last-child {
@@ -93,12 +94,12 @@
       height: 100%;
       object-fit: cover;
       opacity: 0.8;
-      transition: 0.5s ease;
+      transition: transform 0.5s ease, filter 0.5s ease;
     }
 
     .vertical-section:hover img {
-      filter: brightness(90%);
       transform: scale(1.05);
+      filter: brightness(85%);
     }
 
     .overlay {
@@ -115,17 +116,16 @@
       position: relative;
       z-index: 2;
       text-align: center;
-      top: auto;
-      transform: none;
+      padding: 20px;
     }
 
     .vertical-text h2 {
-      font-size: 3em;
+      font-size: 2.8em;
       font-weight: 800;
-      line-height: 1em;
+      line-height: 1.1em;
       text-transform: uppercase;
       margin-bottom: 20px;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
     }
 
     .vertical-text a {
@@ -138,25 +138,47 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       transition: 0.2s ease;
+      border-radius: 25px;
     }
 
     .vertical-text a:hover {
-      letter-spacing: 6px;
+      letter-spacing: 5px;
       background: #fff;
       color: #111;
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
+    /* =============================
+       RESPONSIVE DESIGN
+    ============================= */
+
+    /* Tablets (landscape & portrait) */
+    @media (max-width: 1024px) {
+      .vertical-text h2 {
+        font-size: 2.2em;
+      }
+
+      .back-home {
+        padding: 8px 20px;
+        font-size: 0.9em;
+      }
+
+      header img {
+        width: 150px;
+      }
+    }
+
+    /* Mobile View (stacked layout) */
+    @media (max-width: 768px) {
       .verticals-container {
         flex-direction: column;
+        height: auto;
       }
 
       .vertical-section {
         height: 33.33vh;
         border-right: none;
         border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-        padding-bottom: 20px;
+        padding-bottom: 25px;
       }
 
       .vertical-section:last-child {
@@ -164,20 +186,75 @@
       }
 
       .vertical-text h2 {
-        font-size: 2em;
+        font-size: 1.8em;
+        margin-bottom: 10px;
+      }
+
+      .vertical-text a {
+        font-size: 0.85em;
+        padding: 8px 18px;
+      }
+
+      header img {
+        width: 120px;
+      }
+    }
+
+    /* Small Phones (≤480px) */
+    @media (max-width: 480px) {
+      body {
+        overflow-y: auto;
+      }
+
+      .back-home {
+        top: 10px;
+        left: 10px;
+        padding: 6px 15px;
+        font-size: 0.8em;
+      }
+
+      header {
+        top: 10px;
+        right: 10px;
+      }
+
+      header img {
+        width: 100px;
+      }
+
+      .verticals-container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .vertical-section {
+        height: 33.33vh;
+        padding-bottom: 20px;
+      }
+
+      .vertical-text h2 {
+        font-size: 1.3em;
+        line-height: 1.2em;
+      }
+
+      .vertical-text a {
+        font-size: 0.75em;
+        padding: 6px 14px;
       }
     }
   </style>
 </head>
+
 <body>
-  <!-- Back to Home button on top-left -->
+  <!-- Back to Home -->
   <a href="./index.html" class="back-home">Back to Home</a>
 
-  <!-- Logo on top-right -->
+  <!-- Logo -->
   <header>
     <img src="./assets/logo.png" alt="BEML logo" />
   </header>
 
+  <!-- Main Sections -->
   <div class="verticals-container">
     <!-- Defence & Aerospace -->
     <div class="vertical-section">
