@@ -2,270 +2,297 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Info</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="icon" href="./assets/favicon.ico" type="image/png">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            position: relative;
-            font-family: 'Poppins', sans-serif;
-            overflow: auto;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bangalore Metro</title>
+  <link rel="icon" href="./assets/favicon.ico" type="image/png" />
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: url("./assets/bg.jpg") center/cover no-repeat;
+      overflow-x: hidden;
+    }
 
-            /* Background image */
-            background-image: url('./assets/bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+    /* Back button */
+    .back-gallery {
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      padding: 10px 25px;
+      font-size: 1rem;
+      background: #cc5500;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      z-index: 1000;
+      transition: 0.3s ease;
+      white-space: nowrap;
+    }
 
-        /* Back to Products button on top-left */
-        .back-gallery {
-            position: fixed;
-            top: 20px;
-            left: 40px;
-            padding: 10px 25px;
-            font-size: 1rem;
-            background: #cc5500;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 1000;
-            text-decoration: none;
-            transition: 0.2s;
-        }
+    .back-gallery:hover {
+      background: #aa4400;
+      letter-spacing: 2px;
+    }
 
-        .back-gallery:hover {
-            background: #aa4400;
-            letter-spacing: 3px;
-        }
+    /* Logo */
+    .beml-logo {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      width: 180px;
+      height: auto;
+      object-fit: contain;
+      z-index: 1000;
+    }
 
-        /* BEML Logo on top-right */
-        .beml-logo {
-            position: fixed;
-            top: 20px;
-            right: 60px;
-            width: 200px; /* width same as verticals page */
-            height: auto;
-            object-fit: contain;
-            z-index: 1000;
-        }
+    /* Layout */
+    .product-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 120px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
 
-        .product-container {
-            display: flex;
-            width: 100%;
-            flex: 1;
-            margin-top: 100px; /* adjust for header */
-        }
+    .product-image {
+      flex: 1 1 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 280px;
+    }
 
-        /* Left half for image */
-        .product-image {
-            width: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .product-image img {
+      width: 90%;
+      max-width: 450px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      object-fit: contain;
+    }
 
-        .product-image img {
-            width: 75%;
-            height: auto;
-            border-radius: 15px;
-            object-fit: contain;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
+    .product-details {
+      flex: 1 1 45%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      backdrop-filter: blur(4px);
+      box-sizing: border-box;
+    }
 
-        /* Right half for details */
-        .product-details {
-            width: 50%;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+    .product-title {
+      font-size: 2.2rem;
+      color: #cc5500;
+      margin: 0;
+    }
 
-        .product-title {
-            font-size: 2.5rem;
-            color: #cc5500;
-            margin: 0;
-        }
+    .product-subtitle {
+      font-size: 1.3rem;
+      color: #aa4400;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-        .product-subtitle {
-            font-size: 1.5rem;
-            color: #aa4400;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+    .product-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #333;
+      list-style: disc;
+      margin-left: 20px;
+    }
 
-        .product-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #333;
-        }
+    .product-table-title {
+      font-size: 1.2rem;
+      color: #cc5500;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
 
-        .product-table-title {
-            font-size: 1.2rem;
-            color: #cc5500;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
+    .product-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 0.95rem;
+    }
 
-        .product-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-        }
+    .product-table th,
+    .product-table td {
+      border: 1px solid #ccc;
+      padding: 10px 15px;
+      text-align: left;
+      word-break: break-word;
+    }
 
-        .product-table th,
-        .product-table td {
-            border: 1px solid #ccc;
-            padding: 10px 15px;
-            text-align: left;
-        }
+    .product-table th {
+      background: #f2f2f2;
+      color: #333;
+    }
 
-        .product-table th {
-            background-color: #f2f2f2;
-            color: #333;
-        }
+    /* Responsive styles */
+    @media (max-width: 1024px) {
+      .product-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+      }
 
-        @media screen and (max-width: 1024px) {
-            .product-container {
-                flex-direction: column;
-                margin-top: 80px;
-            }
+      .product-details {
+        width: 95%;
+        padding: 25px;
+      }
 
-            .product-image,
-            .product-details {
-                width: 100%;
-            }
+      .product-image img {
+        width: 95%;
+      }
 
-            .product-image img {
-                width: 90%;
-            }
+      .beml-logo {
+        width: 150px;
+      }
+    }
 
-            .product-details {
-                padding: 20px;
-            }
+    @media (max-width: 600px) {
+      .product-title {
+        font-size: 1.7rem;
+      }
 
-            .product-title {
-                font-size: 2rem;
-            }
+      .product-subtitle {
+        font-size: 1rem;
+      }
 
-            .product-subtitle {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+      .product-details {
+        padding: 20px;
+      }
+
+      .product-table {
+        font-size: 0.9rem;
+      }
+
+      .beml-logo {
+        width: 130px;
+        right: 10px;
+      }
+
+      .back-gallery {
+        padding: 8px 16px;
+        font-size: 0;
+        left: 10px;
+      }
+
+      .back-gallery::after {
+        content: "Back";
+        font-size: 1rem;
+        color: #fff;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Back button -->
+  <a href="./rail.html" class="back-gallery">Back to Products</a>
 
-    <!-- BEML Logo -->
-    <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
+  <!-- Logo -->
+  <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo" />
 
-    <div class="product-container">
-        <!-- Left: Image -->
-        <div class="product-image">
-            <img src="./assets/Blg_Metro.png" alt="Product Image">
-        </div>
-
-        <!-- Right: Details -->
-        <div class="product-details">
-            <h1 class="product-title">Bangalore Metro</h1>
-            <h2 class="product-subtitle">SBU Rail And Metro</h2>
-            <p class="product-description">
-                <li>ATO/ATP train operation</li>
-                    <li>3 cars train set basic configuration upgradable to 6 car train sets</li>
-                    <li>750 V DC Third Rail Current Collection</li>
-                        
-            </p>
-
-            <h3 class="product-table-title">Technical Specifications</h3>
-            <table class="product-table">
-                <tr>
-                    <th>Feature</th>
-                    <th>Details</th>
-                </tr>
-                <tr>
-                    <td>Train Formation
-                    </td>
-                    <td>DMC–TC–MC–MC–TC–DMC-6 car Train set
-                     <DMC-TC-DMC -3 Car Set
-                    </td>
-                </tr>
-                <tr>
-                    <td>Rail Guage</td>
-                    <td>1435mm</td>
-                </tr>
-                <tr>
-                    <td>Operating Speed</td>
-                    <td>80 kmph, Design speed:90 kmph</td>
-                </tr>
-                <tr>
-                    <td>Passenger Capacity</td>
-                    <td>1029 passengers for 3 car / 2064 passengers for 6 car trainset</td>
-                </tr>
-                
-                    <td>Current Collection</td>
-                    <td>750V DC Third Rail Current Collection</td>
-                </tr>
-                
-                    <td>Car Body</td>
-                    <td>Stainless Steel</td>
-                </tr>
-                
-                    <td>Bogies</td>
-                    <td>Two axle Bolsterless type bogie with primary conical rubber spring and secondary air suspension with wheel mounted disk brakes</td>
-                </tr>
-                
-                    <td>Propulsion System</td>
-                    <td>3 Phase propulsion system with Squirrel Cage type Induction motor, Variable Voltage and Variable Frequency (VVVF) control with regenerative braking</td>
-                </tr>
-                </tr>
-                
-                    <td>Brake System</td>
-                    <td>Regenerative braking blended with pneumatic braking</td>
-                </tr>
-                </tr>
-                
-                    <td>Air-conditioning</td>
-                    <td>Roof mounted Heating Ventilation and Air-conditioning system(HVAC)</td>
-                </tr>
-                </tr>
-                
-                    <td>Door System</td>
-                    <td>Electrically driven externally sliding type</td>
-                </tr>
-                </tr>
-                
-                    <td>PA/PIS & CCTV System</td>
-                    <td>Automatic Passenger Announcement system, Passenger saloon surveillance system</td>
-                </tr>
-                </tr>
-                
-                    <td>Saloon Lighting</td>
-                    <td>LED based lighting system with Intelligent Light Control(ILC) resulting in energy saving</td>
-                </tr>
-                </tr>
-                
-                    <td>Interiors</td>
-                    <td>Interiors with FRP panels, SS seats, floating floor with Rubber floor covering</td>
-                </tr>
-            </table>
-        </div>
+  <div class="product-container">
+    <!-- Image -->
+    <div class="product-image">
+      <img src="./assets/Blg_Metro.png" alt="Bangalore Metro" />
     </div>
 
-    <!-- Back to gallery -->
-    <a href="./rail.html" class="back-gallery">Back to Products</a>
+    <!-- Details -->
+    <div class="product-details">
+      <h1 class="product-title">Bangalore Metro</h1>
+      <h2 class="product-subtitle">SBU Rail and Metro</h2>
 
+      <ul class="product-description">
+        <li>ATO/ATP train operation</li>
+        <li>3-car train set configuration, upgradable to 6-car sets</li>
+        <li>750 V DC Third-Rail current collection</li>
+      </ul>
+
+      <h3 class="product-table-title">Technical Specifications</h3>
+      <table class="product-table">
+        <tr>
+          <th>Feature</th>
+          <th>Details</th>
+        </tr>
+        <tr>
+          <td>Train Formation</td>
+          <td>DMC–TC–MC–MC–TC–DMC (6-car), DMC–TC–DMC (3-car)</td>
+        </tr>
+        <tr>
+          <td>Rail Gauge</td>
+          <td>1435 mm</td>
+        </tr>
+        <tr>
+          <td>Operating Speed</td>
+          <td>80 km/h (Design speed 90 km/h)</td>
+        </tr>
+        <tr>
+          <td>Passenger Capacity</td>
+          <td>1029 passengers (3-car) / 2064 passengers (6-car)</td>
+        </tr>
+        <tr>
+          <td>Current Collection</td>
+          <td>750 V DC Third Rail System</td>
+        </tr>
+        <tr>
+          <td>Car Body</td>
+          <td>Stainless Steel</td>
+        </tr>
+        <tr>
+          <td>Bogies</td>
+          <td>Two-axle bolsterless type with rubber primary spring and air secondary suspension</td>
+        </tr>
+        <tr>
+          <td>Propulsion System</td>
+          <td>3-phase VVVF system with induction motor and regenerative braking</td>
+        </tr>
+        <tr>
+          <td>Brake System</td>
+          <td>Regenerative braking blended with pneumatic brakes</td>
+        </tr>
+        <tr>
+          <td>Air-Conditioning</td>
+          <td>Roof-mounted HVAC system</td>
+        </tr>
+        <tr>
+          <td>Door System</td>
+          <td>Electrically driven externally sliding doors</td>
+        </tr>
+        <tr>
+          <td>PA/PIS & CCTV</td>
+          <td>Automatic announcements and surveillance system</td>
+        </tr>
+        <tr>
+          <td>Saloon Lighting</td>
+          <td>LED lighting with Intelligent Light Control (ILC)</td>
+        </tr>
+        <tr>
+          <td>Interiors</td>
+          <td>FRP panels, SS seats, rubber-covered floor</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </body>
+
 </html>
