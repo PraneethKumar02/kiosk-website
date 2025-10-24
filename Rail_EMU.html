@@ -2,210 +2,260 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Info</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="icon" href="./assets/favicon.ico" type="image/png">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            position: relative;
-            font-family: 'Poppins', sans-serif;
-            overflow: auto;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diesel EMU (DEMU) Info</title>
+<link rel="stylesheet" href="./css/styles.css">
+<link rel="icon" href="./assets/favicon.ico" type="image/png">
+<style>
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-image: url('./assets/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 80px; /* space for header */
+}
 
-            /* Background image */
-            background-image: url('./assets/bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+/* Back to Products button */
+.back-gallery {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #cc5500;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 1000;
+    text-decoration: none;
+    transition: 0.2s;
+}
 
-        /* Back to Products button on top-left */
-        .back-gallery {
-            position: fixed;
-            top: 20px;
-            left: 40px;
-            padding: 10px 25px;
-            font-size: 1rem;
-            background: #cc5500;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 1000;
-            text-decoration: none;
-            transition: 0.2s;
-        }
+.back-gallery:hover {
+    background: #aa4400;
+    letter-spacing: 3px;
+}
 
-        .back-gallery:hover {
-            background: #aa4400;
-            letter-spacing: 3px;
-        }
+/* BEML Logo */
+.beml-logo {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+    z-index: 1000;
+}
 
-        /* BEML Logo on top-right */
-        .beml-logo {
-            position: fixed;
-            top: 20px;
-            right: 60px;
-            width: 200px; /* width same as verticals page */
-            height: auto;
-            object-fit: contain;
-            z-index: 1000;
-        }
+/* Container for product */
+.product-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    flex: 1;
+    margin-top: 40px;
+    gap: 20px;
+}
 
-        .product-container {
-            display: flex;
-            width: 100%;
-            flex: 1;
-            margin-top: 100px; /* adjust for header */
-        }
+/* Left half: Image */
+.product-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        /* Left half for image */
-        .product-image {
-            width: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.product-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 15px;
+    object-fit: contain;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
 
-        .product-image img {
-            width: 75%;
-            height: auto;
-            border-radius: 15px;
-            object-fit: contain;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
+/* Right half: Details */
+.product-details {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-        /* Right half for details */
-        .product-details {
-            width: 50%;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+.product-title {
+    font-size: 2.2rem;
+    color: #cc5500;
+    margin: 0;
+}
 
-        .product-title {
-            font-size: 2.5rem;
-            color: #cc5500;
-            margin: 0;
-        }
+.product-subtitle {
+    font-size: 1.5rem;
+    color: #aa4400;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
 
-        .product-subtitle {
-            font-size: 1.5rem;
-            color: #aa4400;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+.product-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
 
-        .product-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #333;
-        }
+.product-description ul {
+    padding-left: 20px;
+}
 
-        .product-table-title {
-            font-size: 1.2rem;
-            color: #cc5500;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
+.product-description li {
+    margin-bottom: 8px;
+}
 
-        .product-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-        }
+/* Table */
+.product-table-title {
+    font-size: 1.2rem;
+    color: #cc5500;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
 
-        .product-table th,
-        .product-table td {
-            border: 1px solid #ccc;
-            padding: 10px 15px;
-            text-align: left;
-        }
+.table-wrapper {
+    overflow-x: auto;
+}
 
-        .product-table th {
-            background-color: #f2f2f2;
-            color: #333;
-        }
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    min-width: 600px;
+}
 
-        @media screen and (max-width: 1024px) {
-            .product-container {
-                flex-direction: column;
-                margin-top: 80px;
-            }
+.product-table th,
+.product-table td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: left;
+}
 
-            .product-image,
-            .product-details {
-                width: 100%;
-            }
+.product-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
 
-            .product-image img {
-                width: 90%;
-            }
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+    }
 
-            .product-details {
-                padding: 20px;
-            }
+    .product-image,
+    .product-details {
+        width: 100%;
+    }
 
-            .product-title {
-                font-size: 2rem;
-            }
+    .product-image img {
+        width: 80%;
+    }
 
-            .product-subtitle {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    .product-title {
+        font-size: 1.8rem;
+    }
+
+    .product-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .back-gallery {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        top: 10px;
+        left: 10px;
+    }
+
+    .beml-logo {
+        width: 140px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .product-title {
+        font-size: 1.5rem;
+    }
+
+    .product-subtitle {
+        font-size: 1rem;
+    }
+
+    .product-description li {
+        font-size: 0.9rem;
+    }
+
+    .product-image img {
+        width: 95%;
+        max-width: 300px;
+    }
+
+    .product-table th,
+    .product-table td {
+        padding: 6px 8px;
+        font-size: 0.85rem;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- BEML Logo -->
-    <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
+<!-- BEML Logo -->
+<img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
 
-    <div class="product-container">
-        <!-- Left: Image -->
-        <div class="product-image">
-            <img src="./assets/Rail_EMU.png" alt="Product Image">
+<div class="product-container">
+    <!-- Left: Image -->
+    <div class="product-image">
+        <img src="./assets/Rail_EMU.png" alt="Diesel EMU">
+    </div>
+
+    <!-- Right: Details -->
+    <div class="product-details">
+        <h1 class="product-title">Diesel EMU (DEMU)</h1>
+        <h2 class="product-subtitle">SBU Rail And Metro</h2>
+        <div class="product-description">
+            <ul>
+                <li>557V DC for traction motors</li>
+                <li>110V DC for Lights, Fans & Control Circuit</li>
+                <li>110V, 120Ah, 10hrs rated battery for emergency Lightings</li>
+            </ul>
         </div>
 
-        <!-- Right: Details -->
-        <div class="product-details">
-            <h1 class="product-title">Diesel EMU (DEMU)</h1>
-            <h2 class="product-subtitle">SBU Rail And Metro</h2>
-            <p class="product-description">
-                <li>557V DC for traction motors</li>
-                    <li>110V DC for Lights, Fans & Control Circult</li>
-                    <li>110V, 120Ah, 10hrs rated battery for emergency Lightings</li>
-                        
-            </p>
-
-            <h3 class="product-table-title">Technical Specifications</h3>
+        <h3 class="product-table-title">Technical Specifications</h3>
+        <div class="table-wrapper">
             <table class="product-table">
                 <tr>
                     <th>Feature</th>
                     <th>Details</th>
                 </tr>
                 <tr>
-                    <td>Max Speed
-                    </td>
-                    <td>110 kmph
-                    </td>
+                    <td>Max Speed</td>
+                    <td>110 kmph</td>
                 </tr>
                 <tr>
                     <td>Axle Load(max)</td>
-                    <td>20.32 Tonnes(Motor Coach)
-                        <br>16.25 Tonnes(Trailer Coach)
-                    </td>
+                    <td>20.32 Tonnes(Motor Coach)<br>16.25 Tonnes(Trailer Coach)</td>
                 </tr>
                 <tr>
                     <td>Braking System</td>
@@ -215,35 +265,29 @@
                     <td>Bogie</td>
                     <td>Wheel Arrangement-Bo Bo TWO Stage suspension Primary/Helical & Secondary Air Spring</td>
                 </tr>
-                
+                <tr>
                     <td>Propulsion System</td>
-                    <td>Motive power of 1400 HP from Diesel Engine coupled to 3phase 415 Volt alternator
-                        <br>Control Equipmart Permits Multiple Operations of Units
-                    </td>
+                    <td>Motive power of 1400 HP from Diesel Engine coupled to 3phase 415 Volt alternator<br>Control Equipment Permits Multiple Operations of Units</td>
                 </tr>
-                
+                <tr>
                     <td>Unit Formation</td>
-                    <td>Driving Power car (with Ladies & handicapped) + 2 Trailer coaches + 1 Trailer coach with Vendors Compartment-DEMU
-                        </td>
+                    <td>Driving Power car (with Ladies & handicapped) + 2 Trailer coaches + 1 Trailer coach with Vendors Compartment-DEMU</td>
                 </tr>
-                
+                <tr>
                     <td>Rake Formation</td>
                     <td>Combination of 2 Units in Mirror formation</td>
                 </tr>
-                
+                <tr>
                     <td>Passenger Capacity For 8 Car trainset</td>
-                    <td>Standing-1432
-                        <br> Seating -682
-                        <br> Total -2114
-                    </td>
+                    <td>Standing-1432<br> Seating -682<br> Total -2114</td>
                 </tr>
-                
             </table>
         </div>
     </div>
+</div>
 
-    <!-- Back to gallery -->
-    <a href="./rail.html" class="back-gallery">Back to Products</a>
+<!-- Back to gallery -->
+<a href="./rail.html" class="back-gallery">Back to Products</a>
 
 </body>
 </html>
