@@ -2,229 +2,72 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Info</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="icon" href="./assets/favicon.ico" type="image/png">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            position: relative;
-            font-family: 'Poppins', sans-serif;
-            overflow: auto;
-
-            /* Background image */
-            background-image: url('./assets/bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        /* Back to Products button on top-left */
-        .back-gallery {
-            position: fixed;
-            top: 20px;
-            left: 40px;
-            padding: 10px 25px;
-            font-size: 1rem;
-            background: #cc5500;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 1000;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-
-        .back-gallery:hover {
-            background: #aa4400;
-            letter-spacing: 3px;
-        }
-
-        /* BEML Logo on top-right */
-        .beml-logo {
-            position: fixed;
-            top: 20px;
-            right: 60px;
-            width: 200px; /* width same as verticals page */
-            height: auto;
-            object-fit: contain;
-            z-index: 1000;
-        }
-
-        .product-container {
-            display: flex;
-            width: 100%;
-            flex: 1;
-            margin-top: 100px; /* adjust for header */
-        }
-
-        /* Left half for image */
-        .product-image {
-            width: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .product-image img {
-            width: 75%;
-            height: auto;
-            border-radius: 15px;
-            object-fit: contain;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Right half for details */
-        .product-details {
-            width: 50%;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .product-title {
-            font-size: 2.5rem;
-            color: #cc5500;
-            margin: 0;
-        }
-
-        .product-subtitle {
-            font-size: 1.5rem;
-            color: #aa4400;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .product-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .product-table-title {
-            font-size: 1.2rem;
-            color: #cc5500;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .product-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-        }
-
-        .product-table th,
-        .product-table td {
-            border: 1px solid #ccc;
-            padding: 10px 15px;
-            text-align: left;
-        }
-
-        .product-table th {
-            background-color: #f2f2f2;
-            color: #333;
-        }
-
-        @media screen and (max-width: 1024px) {
-            .product-container {
-                flex-direction: column;
-                margin-top: 80px;
-            }
-
-            .product-image,
-            .product-details {
-                width: 100%;
-            }
-
-            .product-image img {
-                width: 90%;
-            }
-
-            .product-details {
-                padding: 20px;
-            }
-
-            .product-title {
-                font-size: 2rem;
-            }
-
-            .product-subtitle {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Info</title>
+  <link rel="icon" href="./assets/favicon.ico" type="image/png">
+  <link rel="stylesheet" href="./css/product.css">
 </head>
 
 <body>
 
-    <!-- Back to Products button -->
-    <a href="./mining.html" class="back-gallery">Back to Products</a>
+  <!-- Back to Products button -->
+  <a href="./mining.html" class="back-gallery">Back to Products</a>
 
-    <!-- BEML Logo -->
-    <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
+  <!-- BEML Logo -->
+  <img src="./assets/logoBlack.png" alt="BEML Logo" class="beml-logo">
 
-    <div class="product-container">
-        <!-- Left: Image -->
-        <div class="product-image">
-            <img src="./assets/excavator.jpg" alt="Product Image">
-        </div>
-
-        <!-- Right: Details -->
-        <div class="product-details">
-            <h1 class="product-title">BE1800E Electric Hydraulic Excavator</h1>
-            <h2 class="product-subtitle">SBU Mining</h2>
-            <p class="product-description">
-                <li>Electric-drive twin 300 kW induction motors power the BE1800E for heavy mining duty.</li>
-                <li>Designed for approx. 170 ton operating mass in backhoe configuration (~175 ton in loading-shovel mode)</li>
-                <li>Bucket capacity ranges from ~10.5 m³ to 12.0 m³ (backhoe) and ~7.5 m³ to 12.0 m³ (loading shovel).</li>
-                <li>Indigenous electric hydraulic excavator aimed at mining use, yielding lower operating cost and emission-free operation for underground/large scale mining..</li>
-            </p>
-
-            <h3 class="product-table-title">Technical Specifications</h3>
-            <table class="product-table">
-                <tr>
-                    <th>Feature</th>
-                    <th>Details</th>
-                </tr>
-                <tr>
-                    <td>Gross power</td>
-                    <td>2 × 300 kW @ 1 500 r/min (induction motors)</td>
-                </tr>
-                <tr>
-                    <td>Operating mass (Backhoe)</td>
-                    <td>170 000 kg</td>
-                </tr>
-                <tr>
-                    <td>Operating mass (Loading Shovel)</td>
-                    <td>175 000 kg</td>
-                </tr>
-                <tr>
-                    <td>Bucket capacity (Backhoe)</td>
-                    <td>10.5 m³ – 12.0 m³</td>
-                </tr>
-                <tr>
-                    <td>Bucket capacity (Loading Shovel)</td>
-                    <td>7.5 m³ – 12.0 m³</td>
-                </tr>
-                <tr>
-                    <td>Breakout/tear-out force</td>
-                    <td>571 kN</td>
-                </tr>
-            </table>
-        </div>
+  <div class="product-container">
+    <!-- Left: Image -->
+    <div class="product-image">
+      <img src="./assets/excavator.jpg" alt="Product Image">
     </div>
+
+    <!-- Right: Details -->
+    <div class="product-details">
+      <h1 class="product-title">BE1800E Electric Hydraulic Excavator</h1>
+      <h2 class="product-subtitle">SBU Mining</h2>
+
+      <ul class="product-description">
+        <li>Electric-drive twin 300 kW induction motors power the BE1800E for heavy mining duty.</li>
+        <li>Designed for approx. 170 ton operating mass in backhoe configuration (~175 ton in loading-shovel mode).</li>
+        <li>Bucket capacity ranges from ~10.5 m³ to 12.0 m³ (backhoe) and ~7.5 m³ to 12.0 m³ (loading shovel).</li>
+        <li>Indigenous electric hydraulic excavator aimed at mining use, yielding lower operating cost and emission-free operation for underground/large scale mining.</li>
+      </ul>
+
+      <h3 class="product-table-title">Technical Specifications</h3>
+      <table class="product-table">
+        <tr>
+          <th>Feature</th>
+          <th>Details</th>
+        </tr>
+        <tr>
+          <td>Gross power</td>
+          <td>2 × 300 kW @ 1,500 r/min (induction motors)</td>
+        </tr>
+        <tr>
+          <td>Operating mass (Backhoe)</td>
+          <td>170,000 kg</td>
+        </tr>
+        <tr>
+          <td>Operating mass (Loading Shovel)</td>
+          <td>175,000 kg</td>
+        </tr>
+        <tr>
+          <td>Bucket capacity (Backhoe)</td>
+          <td>10.5 m³ – 12.0 m³</td>
+        </tr>
+        <tr>
+          <td>Bucket capacity (Loading Shovel)</td>
+          <td>7.5 m³ – 12.0 m³</td>
+        </tr>
+        <tr>
+          <td>Breakout/Tear-out force</td>
+          <td>571 kN</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
 </body>
 </html>
