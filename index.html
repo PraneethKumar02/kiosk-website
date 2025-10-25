@@ -6,6 +6,38 @@
   <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
   <link rel="stylesheet" href="./css/styles.css" />
   <title>BEML Kiosk</title>
+
+  <style>
+    /* Optional inline styling — move to styles.css if preferred */
+
+    .text a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px; /* space between logo and text */
+      text-decoration: none;
+      background-color: #ffffff; /* white button */
+      color: #000000; /* black text */
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: 2px solid #ffffff; /* subtle white border */
+      transition: all 0.3s ease;
+    }
+
+    .text a:hover {
+      background-color: #f0f0f0; /* light gray on hover */
+      border-color: #f0f0f0;
+      transform: scale(1.03);
+    }
+
+    .text a img {
+      height: 22px; /* adjust as needed */
+      width: auto;
+      vertical-align: middle;
+    }
+  </style>
 </head>
 <body>
   <section class="showcase">
@@ -24,20 +56,25 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi
         provident unde illum fuga culpa enim eos amet ullam explicabo.
       </p>
-      <a href="./verticals.html">Explore</a>
+
+      <!-- White Explore button with BEML logo -->
+      <a href="./verticals.html">
+        <img src="./assets/infinix.png" alt="BEML logo" />
+        Explore
+      </a>
     </div>
 
     <!-- Social Media Icons -->
     <ul class="social">
       <li>
-        <a href="https://facebook.com/bemlindia" target="_blank">
+        <a href="https://download.png" target="_blank">
           <img src="./assets/facebook-svgrepo-com.svg" alt="Facebook" />
           <span>@bemlindia</span>
         </a>
       </li>
       <li>
         <a href="https://instagram.com/bemlindia" target="_blank">
-          <img src="./assets/instagram-svgrepo-com.svg" alt="Instagram" />
+          <img src="./assets/insta.jpg" alt="Instagram" />
           <span>@bemlindia</span>
         </a>
       </li>
