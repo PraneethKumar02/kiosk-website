@@ -246,7 +246,7 @@ body {
     <div class="crew-dot" data-index="4"></div>
 </div>
 
-<button id="back-home" onclick="location.href='index.html'">Back to Home</button>
+<button id="back-home" onclick="location.href='verticals.html'">Back to Verticals</button>
 
 <script>
 const crewCards = document.querySelectorAll('.crew-card');
@@ -267,10 +267,20 @@ const crewMembers = [
 let crewIndex = 0;
 let isAnimating = false;
 
+// ✅ Load saved card index from localStorage (if exists)
+const savedIndex = localStorage.getItem('selectedProductIndex');
+if (savedIndex !== null) {
+    crewIndex = parseInt(savedIndex);
+}
+
+// ✅ Function to update carousel state
 function updateCrewCarousel(newIndex) {
-    if(isAnimating) return;
+    if (isAnimating) return;
     isAnimating = true;
     crewIndex = (newIndex + crewCards.length) % crewCards.length;
+
+    // Save current card index to localStorage
+    localStorage.setItem('selectedProductIndex', crewIndex);
 
     crewCards.forEach((card,i)=>{
         const offset=(i-crewIndex+crewCards.length)%crewCards.length;
@@ -298,7 +308,17 @@ function updateCrewCarousel(newIndex) {
 leftBtn.addEventListener('click',()=>updateCrewCarousel(crewIndex-1));
 rightBtn.addEventListener('click',()=>updateCrewCarousel(crewIndex+1));
 crewDots.forEach((dot,i)=>dot.addEventListener('click',()=>updateCrewCarousel(i)));
-crewCards.forEach((card,i)=>card.addEventListener('click',()=>updateCrewCarousel(i)));
+
+// ✅ When a card is clicked, store its index before navigating
+crewCards.forEach((card,i)=>{
+    card.addEventListener('click',()=>{
+        localStorage.setItem('selectedProductIndex', i);
+        updateCrewCarousel(i);
+        // Allow the link to work normally
+        const link = card.querySelector('a');
+        if (link) link.click();
+    });
+});
 
 document.addEventListener('keydown', e=>{
     if(e.key==='ArrowLeft') updateCrewCarousel(crewIndex-1);
@@ -316,12 +336,8 @@ document.addEventListener('touchend', e=>{
     }
 });
 
-updateCrewCarousel(0);
+// ✅ Initialize carousel with saved or default index
+updateCrewCarousel(crewIndex);
 </script>
 </body>
 </html>
-
-
-
-
-
