@@ -267,10 +267,19 @@ const crewMembers = [
 let crewIndex = 0;
 let isAnimating = false;
 
+// ✅ Load saved index from localStorage if available
+const savedIndex = localStorage.getItem('selectedRailIndex');
+if (savedIndex !== null) {
+    crewIndex = parseInt(savedIndex);
+}
+
 function updateCrewCarousel(newIndex) {
     if(isAnimating) return;
     isAnimating = true;
     crewIndex = (newIndex + crewCards.length) % crewCards.length;
+
+    // ✅ Save current index
+    localStorage.setItem('selectedRailIndex', crewIndex);
 
     crewCards.forEach((card,i)=>{
         const offset=(i-crewIndex+crewCards.length)%crewCards.length;
@@ -298,7 +307,16 @@ function updateCrewCarousel(newIndex) {
 leftBtn.addEventListener('click',()=>updateCrewCarousel(crewIndex-1));
 rightBtn.addEventListener('click',()=>updateCrewCarousel(crewIndex+1));
 crewDots.forEach((dot,i)=>dot.addEventListener('click',()=>updateCrewCarousel(i)));
-crewCards.forEach((card,i)=>card.addEventListener('click',()=>updateCrewCarousel(i)));
+
+// ✅ Save index on card click
+crewCards.forEach((card,i)=>{
+    card.addEventListener('click',()=>{
+        localStorage.setItem('selectedRailIndex', i);
+        updateCrewCarousel(i);
+        const link = card.querySelector('a');
+        if(link) link.click();
+    });
+});
 
 document.addEventListener('keydown', e=>{
     if(e.key==='ArrowLeft') updateCrewCarousel(crewIndex-1);
@@ -316,8 +334,8 @@ document.addEventListener('touchend', e=>{
     }
 });
 
-updateCrewCarousel(0);
+// ✅ Initialize with saved or default index
+updateCrewCarousel(crewIndex);
 </script>
 </body>
 </html>
-
