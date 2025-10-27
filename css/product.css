@@ -80,7 +80,7 @@ body {
 }
 
 .product-image img {
-  width: 100%;
+  width: 95%;
   max-width: 420px;
   aspect-ratio: 4 / 3;
   object-fit: contain;
@@ -155,7 +155,8 @@ body {
   font-size: 0.95rem;
 }
 
-.product-table th, .product-table td {
+.product-table th, 
+.product-table td {
   border: 1px solid #ccc;
   padding: 10px 12px;
   text-align: left;
@@ -166,3 +167,4 @@ body {
   background-color: #f2f2f2;
   color: #333;
 }
+
