@@ -6,17 +6,64 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* ========== BODY BACKGROUND ========== */
+/* ========== BODY ========== */
 body {
   background: linear-gradient(135deg, #e3f2fd, #bbdefb);
   color: #333;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100vh;
   overflow-x: hidden;
   padding: 30px 0;
+}
+
+/* ========== HEADER ========== */
+.header {
+  position: relative;
+  width: 95%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* BEML Logo */
+.beml-logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+/* Back Button — same style as card buttons */
+.back-button {
+  display: inline-block;
+  text-align: center;
+  background: linear-gradient(135deg, #007bff, #00b4ff);
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3);
+  background-size: 200%;
+  background-position: left;
+  border: none;
+}
+
+/* Hover animation like other buttons */
+.back-button:hover {
+  background-position: right;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.4);
+}
+
+.back-button:active {
+  transform: scale(0.96);
 }
 
 /* ========== CARD CONTAINER ========== */
@@ -115,19 +162,25 @@ body {
   background-position: left;
 }
 
-/* 🔹 Gradient Slide Hover Animation */
+/* Gradient Hover */
 .button-group a:hover {
   background-position: right;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 123, 255, 0.4);
 }
 
-.button-group a:active {
-  transform: scale(0.96);
-}
-
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .beml-logo {
+    width: 90px;
+  }
+
   .card {
     flex-direction: column;
     height: auto;
@@ -151,7 +204,23 @@ body {
   }
 }
 
-/* ========== KEYFRAMES ========== */
+/* For very small screens (≤500px) */
+@media (max-width: 500px) {
+  .beml-logo {
+    width: 70px;
+  }
+
+  .back-button {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .card-content h1 {
+    font-size: 1.1rem;
+  }
+}
+
+/* ========== ANIMATIONS ========== */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
