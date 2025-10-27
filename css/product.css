@@ -1,17 +1,23 @@
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Body Background */
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
   position: relative;
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
+  min-height: 100vh;
   background-image: url('../assets/bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
 }
 
 /* Back Button */
@@ -60,6 +66,7 @@ body {
   margin-top: 120px;
   padding: 20px;
   box-sizing: border-box;
+  gap: 30px;
 }
 
 /* Image Section */
@@ -73,13 +80,16 @@ body {
   gap: 15px;
 }
 
+/* ✅ Uniform Image Size */
 .product-image img {
-  width: 90%;
-  max-width: 450px;
-  height: auto;
-  border-radius: 15px;
+  width: 100%;
+  max-width: 420px;
+  height: 320px;
   object-fit: contain;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 /* Video Button */
@@ -109,7 +119,7 @@ body {
   flex-direction: column;
   gap: 20px;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 15px;
   backdrop-filter: blur(5px);
 }
@@ -165,7 +175,9 @@ body {
   color: #333;
 }
 
-/* Responsive Design */
+/* ===================== RESPONSIVE DESIGN ===================== */
+
+/* 📱 Tablets (Landscape and Portrait) */
 @media (max-width: 1024px) {
   .product-container {
     flex-direction: column;
@@ -179,7 +191,16 @@ body {
   }
 
   .product-image img {
-    width: 95%;
+    max-width: 380px;
+    height: 280px;
+  }
+
+  .product-title {
+    font-size: 2rem;
+  }
+
+  .product-subtitle {
+    font-size: 1.2rem;
   }
 
   .beml-logo {
@@ -187,17 +208,35 @@ body {
   }
 }
 
+/* 📲 Mobile (Portrait) */
 @media (max-width: 600px) {
-  .product-title {
-    font-size: 1.8rem;
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 90px;
+    padding: 10px;
   }
 
-  .product-subtitle {
-    font-size: 1.1rem;
+  .product-image img {
+    max-width: 300px;
+    height: 220px;
   }
 
   .product-details {
+    width: 100%;
     padding: 20px;
+  }
+
+  .product-title {
+    font-size: 1.6rem;
+  }
+
+  .product-subtitle {
+    font-size: 1rem;
+  }
+
+  .product-description {
+    font-size: 0.95rem;
   }
 
   .product-table {
@@ -215,7 +254,7 @@ body {
     left: 10px;
   }
 
-  /* Change button text to 'Back' on small screens */
+  /* Show “Back” text only on small screens */
   .back-gallery::after {
     content: "Back";
   }
@@ -227,5 +266,34 @@ body {
   .back-gallery::after {
     font-size: 1rem;
     color: #fff;
+  }
+}
+
+/* 📱 Extra Small Devices */
+@media (max-width: 400px) {
+  .product-image img {
+    max-width: 260px;
+    height: 190px;
+  }
+
+  .product-details {
+    padding: 15px;
+  }
+
+  .product-title {
+    font-size: 1.4rem;
+  }
+
+  .product-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .video-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .product-table {
+    font-size: 0.85rem;
   }
 }
