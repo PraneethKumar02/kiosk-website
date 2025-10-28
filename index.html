@@ -10,9 +10,10 @@
   <style>
     /* ===================== PAGE HIT COUNTER ===================== */
     .page-counter {
-      position: absolute;
-      bottom: 15px;
+      position: fixed;
+      bottom: 20px;
       right: 20px;
+      z-index: 1000;
     }
 
     .page-counter a {
@@ -29,6 +30,7 @@
       font-weight: 600;
       border: 2px solid #ffffff;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     .page-counter a:hover {
@@ -41,6 +43,41 @@
       height: 22px;
       width: auto;
       vertical-align: middle;
+    }
+
+    /* ===================== RESPONSIVE DESIGN ===================== */
+    @media (max-width: 768px) {
+      .page-counter {
+        bottom: 15px;
+        right: 15px;
+      }
+
+      .page-counter a {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+        gap: 6px;
+        border-radius: 5px;
+      }
+
+      .page-counter a img {
+        height: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-counter {
+        bottom: 12px;
+        right: 12px;
+      }
+
+      .page-counter a {
+        padding: 7px 14px;
+        font-size: 0.85rem;
+      }
+
+      .page-counter a img {
+        height: 16px;
+      }
     }
 
     /* ===================== EXISTING STYLES ===================== */
@@ -93,7 +130,7 @@
       </a>
     </div>
 
-    <!-- Page Counter (styled same as Explore button) -->
+    <!-- Responsive Page Counter -->
     <div class="page-counter">
       <a href="#">
         <img src="./assets/infinix.png" alt="Infinix logo" />
