@@ -1,117 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BEML Defence and Aerospace</title>
-  <link rel="stylesheet" href="../css/verticals.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SBU HMV</title>
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+  <link rel="stylesheet" href="../css/verticals-new.css" />
 </head>
 <body>
-  <div class="background-container">
-    <img src="../assets/mining.jpg" alt="Background">
-  </div>
 
-  <img src="../assets/logo.png" alt="BEML Logo" class="beml-logo">
+  <!-- ======= HEADER ======= -->
+  <header class="header">
+    <a href="../verticals-new.html" class="back-button">Back</a>
+    <img src="../assets/logoBlack.png" alt="BEML Logo" class="beml-logo" />
+  </header>
 
-  <div class="crew-carousel">
-    <button class="crew-arrow crew-left" aria-label="Previous slide">‹</button>
-    <div class="crew-track">
-      <div class="crew-card" data-index="0"><a href="../mining_template/BH205E.html"><img src="../assets/mining.jpg" alt="BEML Dump Truck BH205E"></a></div>
-      <div class="crew-card" data-index="1"><a href="../mining_template/wheel loaders.html"><img src="../assets/wheel.jpg" alt="BEML Wheel Loader"></a></div>
-      <div class="crew-card" data-index="2"><a href="../mining_template/crawler.html"><img src="../assets/crawler.png" alt="BEML Crawler"></a></div>
-      <div class="crew-card" data-index="3"><a href="../mining_template/water.html"><img src="../assets/water.jpg" alt="BEML Water Sprinkler"></a></div>
-      <div class="crew-card" data-index="4"><a href="../mining_template/excavators.html"><img src="../assets/excavator.jpg" alt="BEML Excavator"></a></div>
+  <!-- ======= CARD SECTION ======= -->
+  <section class="card-container">
+
+    <!-- CARD 1 -->
+    <div class="card">
+      <img src="../assets/defence.jpg" alt="Defence">
+      <div class="card-content">
+        <h1>Wheel Dozer</h1>
+        <div class="button-group">
+          <a href="../hmv_template/BD14W.html">BD14W</a>
+          <a href="../hmv_template/BD30W-1.html">BD30W-1</a>
+        </div>
+      </div>
     </div>
-    <button class="crew-arrow crew-right" aria-label="Next slide">›</button>
-  </div>
 
-  <div class="crew-info">
-    <h2 class="crew-name">BEML Dump Truck BH205E</h2>
-    <p class="crew-role"></p>
-  </div>
+    <!-- CARD 2 -->
+    <div class="card">
+      <img src="../assets/mining.jpg" alt="Mining">
+      <div class="card-content">
+        <h1>Crawler Dozer</h1>
+        <div class="button-group">
+          <a href="../hmv_template/BD155.html">BD155</a>
+          <a href="../hmv_template/BD475-2.html">BD475-2</a>
+          <a href="../hmv_template/BE300LC.html">BE300LC</a>
+        </div>
+      </div>
+    </div>
 
-  <div class="crew-dots">
-    <div class="crew-dot active" data-index="0"></div>
-    <div class="crew-dot" data-index="1"></div>
-    <div class="crew-dot" data-index="2"></div>
-    <div class="crew-dot" data-index="3"></div>
-    <div class="crew-dot" data-index="4"></div>
-  </div>
+    <!-- CARD 3 -->
+    <div class="card">
+      <img src="../assets/rail.jpg" alt="Rail">
+      <div class="card-content">
+        <h1>Hydraulic Excavator</h1>
+        <div class="button-group">
+          <a href="../hmv_template/BE700.html">BE700</a>
+          <a href="../hmv_template/BE1000-1.html">BE1000-1</a>
+          <a href="../hmv_template/BE1000E-1.html">BE1000E-1</a>
+          <a href="../hmv_template/BE1800D.html">BE1800D</a>
+          <a href="../hmv_template/BE1800E.html">BE1800E</a>
+        </div>
+      </div>
+    </div>
 
-  <button id="back-home" onclick="location.href='./verticals.html'">Back to Explore</button>
-  <script>
-    const crewCards = document.querySelectorAll('.crew-card');
-    const crewDots = document.querySelectorAll('.crew-dot');
-    const crewName = document.querySelector('.crew-name');
-    const crewRole = document.querySelector('.crew-role');
-    const leftBtn = document.querySelector('.crew-left');
-    const rightBtn = document.querySelector('.crew-right');
+    <!-- CARD 4 -->
+    <div class="card">
+      <img src="../assets/rail.jpg" alt="Rail">
+      <div class="card-content">
+        <h1>Motor Grader</h1>
+        <div class="button-group">
+          <a href="../hmv_template/BG825.html">BG825</a>
+        </div>
+      </div>
+    </div>
 
-    const crewMembers = [
-      { name: 'BEML Dump Truck BH205E' },
-      { name: 'BEML Wheel Loader' },
-      { name: 'BEML Crawler' },
-      { name: 'BEML Water Sprinkler' },
-      { name: 'BEML Excavator' }
-    ];
+    <!-- CARD 5 -->
+    <div class="card">
+      <img src="../assets/rail.jpg" alt="Rail">
+      <div class="card-content">
+        <h1>Rear Dump Truck</h1>
+        <div class="button-group">
+          <a href="../hmv_template/BH35-2.html">BH35-2</a>
+          <a href="../hmv_template/BH60M.html">BH60M</a>
+          <a href="../hmv_template/BH100.html">BH100</a>
+          <a href="../hmv_template/BH150E.html">BH150E</a>
+          <a href="../hmv_template/BH205E-AC.html">BH205E-AC</a>
+        </div>
+      </div>
+    </div>
 
-    let crewIndex = 0;
-    let isAnimating = false;
+    <!-- CARD 6 -->
+    <div class="card">
+      <img src="../assets/rail.jpg" alt="Rail">
+      <div class="card-content">
+        <h1>Tyre Handler</h1>
+        <div class="button-group">
+          <a href="../hmv_template/BL14TH.html">BL14TH</a>
+          <a href="../hmv_template/BL40TH.html">BL40TH</a>
+        </div>
+      </div>
+    </div>
 
-    function updateCrewCarousel(newIndex) {
-      if (isAnimating) return;
-      isAnimating = true;
-      crewIndex = (newIndex + crewCards.length) % crewCards.length;
+    <!-- CARD 7 -->
+    <div class="card">
+      <img src="../assets/rail.jpg" alt="Rail">
+      <div class="card-content">
+        <h1>Wheel Loader</h1>
+        <div class="button-group">
+          <a href="../hmv_template/BL40.html">BL40</a>
+        </div>
+      </div>
+    </div>
 
-      crewCards.forEach((card, i) => {
-        const offset = (i - crewIndex + crewCards.length) % crewCards.length;
-        card.classList.remove('center', 'left-1', 'left-2', 'right-1', 'right-2', 'hidden');
-        if (offset === 0) card.classList.add('center');
-        else if (offset === 1) card.classList.add('right-1');
-        else if (offset === 2) card.classList.add('right-2');
-        else if (offset === crewCards.length - 1) card.classList.add('left-1');
-        else if (offset === crewCards.length - 2) card.classList.add('left-2');
-        else card.classList.add('hidden');
-      });
+    <!-- CARD 8 -->
+    <div class="card">
+      <img src="../assets/rail.jpg" alt="Rail">
+      <div class="card-content">
+        <h1>Pipe Layer</h1>
+        <div class="button-group">
+          <a href="../hmv_template/BP41.html">BP41</a>
+          <a href="../hmv_template/BP70.html">BP70</a>
+          <a href="../hmv_template/BP100.html">BP100</a>
+        </div>
+      </div>
+    </div>
 
-      crewDots.forEach((dot, i) => dot.classList.toggle('active', i === crewIndex));
-      crewName.style.opacity = '0';
-      crewRole.style.opacity = '0';
-      setTimeout(() => {
-        crewName.textContent = crewMembers[crewIndex].name;
-        crewRole.textContent = crewMembers[crewIndex].role || '';
-        crewName.style.opacity = '1';
-        crewRole.style.opacity = '1';
-      }, 300);
-      setTimeout(() => { isAnimating = false; }, 800);
-    }
+    <!-- CARD 9 -->
+    <div class="card">
+      <img src="../assets/rail.jpg" alt="Rail">
+      <div class="card-content">
+        <h1>Rope Shovel</h1>
+        <div class="button-group">
+          <a href="../hmv_template/BRS21.html">BRS21</a>
+        </div>
+      </div>
+    </div>
 
-    leftBtn.addEventListener('click', () => updateCrewCarousel(crewIndex - 1));
-    rightBtn.addEventListener('click', () => updateCrewCarousel(crewIndex + 1));
-    crewDots.forEach((dot, i) => dot.addEventListener('click', () => updateCrewCarousel(i)));
-    crewCards.forEach((card, i) => card.addEventListener('click', () => updateCrewCarousel(i)));
+    <!-- CARD 10 -->
+    <div class="card">
+      <img src="../assets/rail.jpg" alt="Rail">
+      <div class="card-content">
+        <h1>Water Sprinkler</h1>
+        <div class="button-group">
+          <a href="../hmv_template/BWS70.html">BWS70</a>
+          <a href="../hmv_template/WS28-2.html">WS28-2</a>
+        </div>
+      </div>
+    </div>
 
-    document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft') updateCrewCarousel(crewIndex - 1);
-      else if (e.key === 'ArrowRight') updateCrewCarousel(crewIndex + 1);
-    });
+    <!-- CARD 11 -->
+    <div class="card">
+      <img src="../assets/rail.jpg" alt="Rail">
+      <div class="card-content">
+        <h1>C-Crane</h1>
+        <div class="button-group">
+          <a href="../hmv_template/CM20H.html">CM20H</a>
+        </div>
+      </div>
+    </div>
 
-    let touchStart = 0, touchEnd = 0;
-    document.addEventListener('touchstart', e => { touchStart = e.changedTouches[0].screenX; });
-    document.addEventListener('touchend', e => {
-      touchEnd = e.changedTouches[0].screenX;
-      const diff = touchStart - touchEnd;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) updateCrewCarousel(crewIndex + 1);
-        else updateCrewCarousel(crewIndex - 1);
-      }
-    });
+  </section>
 
-    updateCrewCarousel(0);
-  </script>
 </body>
 </html>
-
-
-
-
