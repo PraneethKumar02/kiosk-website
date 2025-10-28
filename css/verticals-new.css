@@ -195,6 +195,10 @@ body {
     gap: 15px;
     text-align: center;
   }
+  
+  body {
+  background-image: url("../assets/bgMobile.jpg");
+}
 
   .beml-logo {
     width: 90px;
@@ -231,6 +235,10 @@ body {
   .beml-logo {
     width: 70px;
   }
+
+  body {
+  background-image: url("../assets/bgMobile.jpg");
+}
 
   .back-button {
     padding: 8px 16px;
