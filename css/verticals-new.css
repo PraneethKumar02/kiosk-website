@@ -22,7 +22,6 @@ body {
   padding: 30px 0;
 }
 
-
 /* ===================== HEADER ===================== */
 .header {
   position: relative;
@@ -36,7 +35,7 @@ body {
 
 /* BEML Logo */
 .beml-logo {
-  width: 120px;
+  width: 200px;
   height: auto;
   object-fit: contain;
   transition: transform 0.3s ease, width 0.3s ease;
@@ -108,7 +107,7 @@ body {
   height: 95%;
   max-width: 400px;
   max-height: 400px;
-  object-fit: contain; /* keeps aspect ratio */
+  object-fit: contain;
   object-position: center;
   display: block;
   margin: auto;
@@ -130,7 +129,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(90deg, #ffffff, #f9f9f9);
 }
 
 .card-content h1 {
@@ -165,9 +163,10 @@ body {
 
 /* ===================== BUTTON GROUP ===================== */
 .button-group {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
+  justify-content: center; /* ✅ centers all rows including last one */
 }
 
 .button-group a {
@@ -181,9 +180,10 @@ body {
   font-size: 0.9rem;
   transition: all 0.3s ease;
   box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3);
-  width: 100%;
   background-size: 200%;
   background-position: left;
+  width: auto;
+  min-width: 180px;
 }
 
 .button-group a:hover {
@@ -199,18 +199,16 @@ body {
     gap: 15px;
     text-align: center;
   }
-  
-@media (max-width: 900px) {
+
+  .beml-logo {
+    width: 400px;
+  }
+
   body {
     background-image: url("../assets/bgMobile.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-  }
-}
-
-  .beml-logo {
-    width: 90px;
   }
 
   .card {
@@ -220,8 +218,8 @@ body {
   }
 
   .card img {
-    width: 140px;
-    height: 140px;
+    width: 600px;
+    height: 600px;
     margin: 20px auto 10px;
   }
 
@@ -234,15 +232,19 @@ body {
     margin: 5px auto;
   }
 
+  /* ✅ Keep buttons centered for all screen sizes */
   .button-group {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
   }
 }
 
 /* For very small screens (≤500px) */
 @media (max-width: 500px) {
   .beml-logo {
-    width: 70px;
+    width: 250px;
   }
 
   body {
@@ -259,8 +261,13 @@ body {
   }
 
   .card img {
-    width: 120px;
-    height: 120px;
+    width: 400px;
+    height: 400px;
+  }
+
+  /* ✅ Buttons still centered nicely */
+  .button-group {
+    justify-content: center;
   }
 }
 
