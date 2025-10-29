@@ -96,8 +96,26 @@
     </div>
     
   </section>
+  <script>
+  // Save scroll position before navigating away
+  document.querySelectorAll(".button-group a").forEach(link => {
+    link.addEventListener("click", () => {
+      sessionStorage.setItem("scrollPosition", window.scrollY);
+    });
+  });
+
+  // Restore scroll position when coming back
+  window.addEventListener("load", () => {
+    const scrollPos = sessionStorage.getItem("scrollPosition");
+    if (scrollPos) {
+      window.scrollTo({ top: parseFloat(scrollPos), behavior: "instant" });
+      sessionStorage.removeItem("scrollPosition");
+    }
+  });
+</script>
 </body>
 </html>
+
 
 
 
