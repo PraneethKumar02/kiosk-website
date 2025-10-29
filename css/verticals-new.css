@@ -165,27 +165,14 @@ body {
   color: #007bff;
 }
 
-.green-btn {
-  background-color: #7bed9f; /* Light green */
-  color: #000; /* Black text for contrast */
-  border: none;
-  transition: all 0.3s ease;
-}
-
-.green-btn:hover {
-  background-color: #55efc4; /* Slightly darker pastel green on hover */
-  transform: scale(1.05);
-}
-
-
 /* ===================== BUTTON GROUP (UPDATED) ===================== */
 .button-group {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* ✅ Always 3 columns */
-  justify-content: start; /* ✅ Aligns last row to the left if not multiple of 3 */
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr); /* ✅ Always 3 columns on desktop */
+  justify-content: start; /* ✅ Last row left-aligned if not multiple of 3 */
+  gap: 14px;
   width: 100%;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -230,6 +217,7 @@ body {
     background-repeat: no-repeat;
   }
 
+
   .card {
     flex-direction: column;
     height: auto;
@@ -260,6 +248,13 @@ body {
 
 /* For very small screens (≤500px) */
 @media (max-width: 500px) {
+
+  .button-group {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    padding: 20px 20px; /* ✅ Added padding for small screens */
+  }
+
   .beml-logo {
     width: 180px;
   }
