@@ -169,11 +169,13 @@ body {
 .button-group {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* ✅ Always 3 columns on desktop */
-  justify-content: start; /* ✅ Last row left-aligned if not multiple of 3 */
+  justify-content: start;
   gap: 14px;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  padding: 20px 40px; /* ✅ Added safe padding for desktop */
+  box-sizing: border-box;
 }
 
 .button-group a {
@@ -243,17 +245,27 @@ body {
   .button-group {
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
+    padding: 20px 25px;
+    max-width: 100%; 
   }
 }
 
 /* For very small screens (≤500px) */
 @media (max-width: 500px) {
 
-  .button-group {
-    grid-template-columns: repeat(2, 1fr);
+    .button-group {
+    grid-template-columns: 1fr 1fr; /* ✅ Two buttons per row */
     justify-content: center;
-    padding: 20px 20px; /* ✅ Added padding for small screens */
+    max-width: 100%; /* ✅ Fit inside card */
+    padding: 15px; /* ✅ Equal inner padding */
+    box-sizing: border-box;
   }
+
+  .button-group a {
+    min-width: auto; /* ✅ Remove fixed min-width to prevent overflow */
+    width: 100%; /* ✅ Make each button fit its column */
+  }
+}
 
   .beml-logo {
     width: 180px;
