@@ -167,9 +167,9 @@ body {
 
 /* ===================== BUTTON GROUP (UPDATED) ===================== */
 .button-group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* ✅ centers last row if not multiple of 3 */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ✅ Always 3 columns */
+  justify-content: start; /* ✅ Aligns last row to the left if not multiple of 3 */
   gap: 12px;
   width: 100%;
   max-width: 700px;
@@ -177,8 +177,7 @@ body {
 }
 
 .button-group a {
-  flex: 1 1 calc(33.333% - 12px); /* ✅ 3 per row */
-  max-width: 210px;
+  display: inline-block;
   text-align: center;
   background: linear-gradient(135deg, #007bff, #00b4ff);
   color: white;
