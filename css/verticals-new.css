@@ -165,6 +165,19 @@ body {
   color: #007bff;
 }
 
+.green-btn {
+  background-color: #7bed9f; /* Light green */
+  color: #000; /* Black text for contrast */
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.green-btn:hover {
+  background-color: #55efc4; /* Slightly darker pastel green on hover */
+  transform: scale(1.05);
+}
+
+
 /* ===================== BUTTON GROUP (UPDATED) ===================== */
 .button-group {
   display: grid;
