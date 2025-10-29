@@ -25,11 +25,11 @@ body {
 /* ===================== HEADER ITEMS ===================== */
 .back-gallery {
   position: fixed;
-  top: 15px;
+  top: 60px; /* 🔽 lowered for desktop */
   left: 20px;
   padding: 10px 25px;
   font-size: 1rem;
-  background: #cc5500;
+  background: linear-gradient(135deg, #007bff, #00b4ff);
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -43,7 +43,7 @@ body {
 }
 
 .back-gallery:hover {
-  background: #aa4400;
+  background: linear-gradient(135deg, #0063d1, #0095dd);
   letter-spacing: 2px;
 }
 
@@ -64,10 +64,10 @@ body {
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 1200px;
-  margin: 130px auto 60px;
+  max-width: 1700px;
+  margin: 150px auto 60px; /* 🔽 slightly more top margin */
   padding: 20px;
-  gap: 40px;
+  gap: 20px;
 }
 
 /* ===================== IMAGE SECTION ===================== */
@@ -81,7 +81,7 @@ body {
 
 .product-image img {
   width: 95%;
-  max-width: 420px;
+  max-width: 600px;
   aspect-ratio: 4 / 3;
   object-fit: contain;
   background: #fff;
@@ -91,7 +91,7 @@ body {
 }
 
 .video-btn {
-  background-color: #cc5500;
+  background: linear-gradient(135deg, #007bff, #00b4ff);
   color: #fff;
   padding: 10px 25px;
   border-radius: 6px;
@@ -103,13 +103,13 @@ body {
 }
 
 .video-btn:hover {
-  background-color: #aa4400;
+  background: linear-gradient(135deg, #0063d1, #0095dd);
   letter-spacing: 2px;
 }
 
 /* ===================== DETAILS SECTION ===================== */
 .product-details {
-  flex: 1 1 45%;
+  flex: 1 1 52%;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   padding: 35px;
@@ -121,12 +121,12 @@ body {
 
 .product-title {
   font-size: 2rem;
-  color: #cc5500;
+  color: #007bff;
 }
 
 .product-subtitle {
   font-size: 1.2rem;
-  color: #aa4400;
+  color: #00b4ff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -141,7 +141,7 @@ body {
 
 .product-table-title {
   font-size: 1.1rem;
-  color: #cc5500;
+  color: #007bff;
   text-transform: uppercase;
   margin-top: 10px;
 }
@@ -168,3 +168,71 @@ body {
   color: #333;
 }
 
+/* ===================== RESPONSIVE DESIGN ===================== */
+@media (max-width: 900px) {
+  .beml-logo {
+    width: 150px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .back-gallery {
+    top: 80px; /* 🔽 more gap for mobile */
+    left: 15px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 160px;
+  }
+
+  .product-image img {
+    max-width: 100%;
+    width: 400px;
+  }
+
+  .product-details {
+    width: 95%;
+    padding: 25px;
+  }
+
+  .product-title {
+    font-size: 1.6rem;
+  }
+
+  .product-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .beml-logo {
+    width: 130px;
+  }
+
+  .back-gallery {
+    top: 85px;
+    left: 10px;
+    font-size: 0.85rem;
+    padding: 7px 16px;
+  }
+
+  .product-container {
+    margin-top: 170px;
+  }
+
+  .product-details {
+    padding: 20px;
+  }
+
+  .product-title {
+    font-size: 1.4rem;
+  }
+
+  .product-subtitle {
+    font-size: 0.9rem;
+  }
+}
