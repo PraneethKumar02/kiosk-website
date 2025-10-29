@@ -139,20 +139,28 @@
     </div>
   </section>
 
-  <script>
-    // ===================== PAGE HIT COUNTER LOGIC =====================
-    const counter = document.getElementById("hitCount");
-    let hits = localStorage.getItem("page_hits");
+<script>
+  // ===================== PAGE HIT COUNTER LOGIC =====================
+  const counter = document.getElementById("hitCount");
+  let hits = localStorage.getItem("page_hits");
 
-    if (!hits) {
-      hits = 1;
-    } else {
-      hits = Number(hits) + 1;
-    }
+  if (!hits) {
+    hits = 0;
+  } else {
+    hits = Number(hits);
+  }
 
+  // Only increment once per session (not every page load)
+  if (!sessionStorage.getItem("session_visited")) {
+    hits += 1;
     localStorage.setItem("page_hits", hits);
-    counter.textContent = hits;
-  </script>
+    sessionStorage.setItem("session_visited", "true");
+  }
+
+  counter.textContent = hits;
+</script>
+
 </body>
 </html>
+
 
