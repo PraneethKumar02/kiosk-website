@@ -201,7 +201,7 @@ body {
   }
 
   .beml-logo {
-    width: 400px;
+    width: 300px;
   }
 
   body {
@@ -244,7 +244,7 @@ body {
 /* For very small screens (≤500px) */
 @media (max-width: 500px) {
   .beml-logo {
-    width: 250px;
+    width: 180px;
   }
 
   body {
