@@ -165,16 +165,20 @@ body {
   color: #007bff;
 }
 
-/* ===================== BUTTON GROUP ===================== */
+/* ===================== BUTTON GROUP (UPDATED) ===================== */
 .button-group {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center; /* ✅ centers last row if not multiple of 3 */
   gap: 12px;
-  justify-content: center; /* ✅ centers all rows including last one */
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .button-group a {
-  display: inline-block;
+  flex: 1 1 calc(33.333% - 12px); /* ✅ 3 per row */
+  max-width: 210px;
   text-align: center;
   background: linear-gradient(135deg, #007bff, #00b4ff);
   color: white;
@@ -186,7 +190,6 @@ body {
   box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3);
   background-size: 200%;
   background-position: left;
-  width: auto;
   min-width: 180px;
 }
 
@@ -236,11 +239,9 @@ body {
     margin: 5px auto;
   }
 
-  /* ✅ Keep buttons centered for all screen sizes */
+  /* ✅ 2-column layout for tablets */
   .button-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
   }
 }
@@ -269,8 +270,9 @@ body {
     height: 300px;
   }
 
-  /* ✅ Buttons still centered nicely */
+  /* ✅ 1-column layout for mobile */
   .button-group {
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
   }
 }
