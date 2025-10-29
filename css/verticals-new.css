@@ -40,7 +40,7 @@ body {
 /* BEML Logo */
 .beml-logo {
   width: 200px;
-  height: auto;
+  height: 300px;
   object-fit: contain;
   transition: transform 0.3s ease, width 0.3s ease;
 }
